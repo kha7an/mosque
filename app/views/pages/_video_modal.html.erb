@@ -1,0 +1,29 @@
+<div class="video-modal" id="videoModal" hidden>
+  <div class="video-modal__backdrop" data-video-modal-close></div>
+  <div
+    class="video-modal__dialog"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="videoModalTitle"
+  >
+    <button
+      type="button"
+      class="video-modal__close"
+      data-video-modal-close
+      aria-label="<%= t("videos.close") %>"
+    >
+      ×
+    </button>
+    <h2 class="video-modal__title" id="videoModalTitle"></h2>
+    <div class="video-modal__player">
+      <iframe
+        id="videoModalFrame"
+        title=""
+        src=""
+        allow="clipboard-write; autoplay"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+</div>

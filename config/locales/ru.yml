@@ -1,0 +1,179 @@
+ru:
+  date:
+    formats:
+      long: "%-d %B %Y"
+      short: "%d.%m.%Y"
+      event_day: "%-d"
+      event_month: "%B"
+  hijri:
+    formats:
+      long: "%{day} %{month} %{year}"
+    month_names:
+      -
+      - Мухаррам
+      - Сафар
+      - Раби аль-авваль
+      - Раби ас-сани
+      - Джумада аль-уля
+      - Джумада ас-сани
+      - Раджаб
+      - Шаабан
+      - Рамадан
+      - Шавваль
+      - Зуль-када
+      - Зуль-хиджа
+  prayer_times:
+    names:
+      fajr: Фаджр
+      sunrise: Восход
+      zuhr: Зухр
+      asr: Аср
+      maghrib: Магриб
+      isha: Иша
+    subtitles:
+      sunrise: шурук
+      beginning: начало
+    schedule:
+      kicker: Расписание на сегодня
+      title: Время намазов
+      source: "Источник: ДУМ РТ"
+      full_schedule: Полное расписание на месяц →
+      next_prayer: Следующий намаз
+      empty: Расписание временно недоступно
+    page:
+      title: Время намазов
+      meta_description: "Расписание намазов по городам Республики Татарстан на 30 дней. Данные ДУМ РТ."
+      city_label: "Выберите город или район"
+      period: "%{from} — %{to}"
+      table_title: "Время намазов на ближайшие 30 дней"
+      columns:
+        date: Дата
+        morning: Утренний намаз
+        end_suhur: Завершение сухура
+        fajr: Совершается в мечетях
+        sunrise: Восход солнца
+        zenith: Зенит
+        zuhr: Зухр
+        asr: Аср
+        maghrib: Магриб
+        isha: Иша
+      empty: "Для выбранного периода расписание не найдено. Попробуйте другой год или город."
+      source: "Данные ДУМ РТ · %{year} год"
+      back_home: На главную
+  hadiths:
+    narrated_by: "Передано от: %{narrator}"
+  events:
+    read_more: Подробнее
+    external_link: Дополнительная ссылка
+    empty: Пока нет предстоящих событий. Добавьте их в админке.
+    page:
+      nav: События
+      index_title: Новости и события
+      index_meta_description: "Анонсы мероприятий, праздники и встречи мечети «Казан-нуры»."
+      back_home: На главную
+      back_to_events: Все события
+    section:
+      kicker: Что предстоит
+      title: Новости и события
+      all: Все события →
+      featured_label: Главное
+    categories:
+      special: Особое событие
+      khutba: Хутба
+      youth: Молодёжь
+      education: Образование
+      community: Община
+    avo:
+      location_hint: "Например: большой зал"
+      featured_hint: Главная новость на главной странице (только одна). Укажите дату в будущем — иначе событие скроется через 30 дней после даты.
+      link_hint: Внешняя ссылка на странице события (регистрация, карта и т.д.)
+      cover_hint: Фото на главной (блок «Главное») и на странице события (JPEG, PNG, WebP, GIF)
+  videos:
+    watch: "Смотреть: %{title}"
+    close: "Закрыть видео"
+    empty: "Пока нет опубликованных записей. Добавьте видео в админке."
+    all_videos: "Все видео"
+    page:
+      title: Хутбы и проповеди
+      meta_description: "Записи пятничных хутб, лекции имамов мечети «Казан-нуры» и трансляции."
+      lead: "Записи пятничных хутб, лекции имамов мечети и трансляции пятничных намазов."
+      back_home: На главную
+    all_on_rutube: "Вся видеотека на Rutube"
+    subscribe_rutube: "Подписаться на канал Rutube"
+    filters:
+      all: Все
+      khutba: Хутбы
+      lecture: Лекции
+      tafsir: Тафсир
+      tatar: На татарском
+    categories:
+      khutba: Хутба
+      lecture: Лекция
+      tafsir: Тафсир
+      tatar: Татарча
+    avo:
+      link_hint: "Ссылка на видео Rutube, например https://rutube.ru/video/…"
+  avo:
+    resource_translations:
+      city:
+        one: Город
+        few: Города
+        many: Городов
+        other: Города
+      prayer_time:
+        one: Запись расписания
+        few: Расписание намазов
+        many: Расписание намазов
+        other: Расписание намазов
+      video:
+        one: Видео
+        few: Видео
+        many: Видео
+        other: Видео
+      event:
+        one: Событие
+        few: События
+        many: Событий
+        other: События
+    field_translations:
+      id: ID
+      title: Заголовок
+      category: Категория
+      description: Описание
+      link: Ссылка
+      created_at: Создано
+      name: Название
+      slug: Код (slug)
+      source_filename: Файл источника
+      default: По умолчанию
+      prayer_times:
+        one: Запись расписания
+        few: Расписание намазов
+        many: Расписание намазов
+        other: Расписание намазов
+      city: Город
+      date: Дата
+      end_suhur: Завершение сухура
+      fajr: Фаджр
+      sunrise: Восход
+      zenith: Зенит
+      zuhr: Зухр
+      asr: Аср
+      maghrib: Магриб
+      isha: Иша
+      jumua: Джума
+      starts_at: Дата и время
+      location: Место
+      featured: Главная новость
+      cover: Фото
+  activerecord:
+    errors:
+      models:
+        event:
+          attributes:
+            cover:
+              invalid_type: "должно быть изображением (JPEG, PNG, WebP или GIF)"
+        video:
+          attributes:
+            link:
+              invalid_rutube: "должна быть ссылкой на видео Rutube"

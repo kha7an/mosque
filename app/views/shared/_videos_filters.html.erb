@@ -1,0 +1,22 @@
+<div class="sermons__filters" role="tablist" aria-label="Фильтр проповедей" data-sermons-filters>
+  <button
+    class="chip is-active"
+    type="button"
+    role="tab"
+    aria-selected="true"
+    data-filter="all"
+  >
+    <%= t("videos.filters.all") %>
+  </button>
+  <% video_categories.each do |key| %>
+    <button
+      class="chip"
+      type="button"
+      role="tab"
+      aria-selected="false"
+      data-filter="<%= key %>"
+    >
+      <%= t("videos.filters.#{key}") %>
+    </button>
+  <% end %>
+</div>

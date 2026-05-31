@@ -1,0 +1,28 @@
+<article
+  class="sermon"
+  data-category="<%= video.category %>"
+  data-video-modal
+  data-embed-url="<%= video.embed_url %>"
+  data-video-title="<%= video.title %>"
+>
+  <button
+    type="button"
+    class="sermon__thumb"
+    style="background-image: url('<%= video.thumbnail_url %>')"
+    aria-label="<%= t("videos.watch", title: video.title) %>"
+  >
+    <span class="sermon__play" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+    </span>
+    <% if video.category_label.present? %>
+      <span class="<%= video.category_badge_class %>"><%= video.category_label %></span>
+    <% end %>
+  </button>
+  <div class="sermon__body">
+    <span class="sermon__meta"><%= l video.created_at.to_date, format: :long %></span>
+    <h3 class="sermon__title"><%= video.title %></h3>
+    <% if video.description.present? && video.description != video.title %>
+      <p><%= video.description %></p>
+    <% end %>
+  </div>
+</article>

@@ -1,0 +1,19 @@
+<%= link_to event_path(event), class: "event event--link" do %>
+  <div class="event__date">
+    <span class="event__day"><%= event.day_label %></span>
+    <span class="event__month"><%= event.month_label %></span>
+  </div>
+  <div class="event__body">
+    <% if event.category_label.present? %>
+      <span class="event__tag"><%= event.category_label %></span>
+    <% end %>
+    <h3><%= event.title %></h3>
+    <% if event.description.present? %>
+      <p><%= event_excerpt(event, length: 30) %></p>
+    <% end %>
+    <% if event.meta_label.present? %>
+      <span class="event__meta"><%= event.meta_label %></span>
+    <% end %>
+    <span class="event__more link-arrow"><%= t("events.read_more") %> →</span>
+  </div>
+<% end %>

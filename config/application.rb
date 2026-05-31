@@ -22,6 +22,11 @@ module Mosque
     # in config/environments, which are processed later.
     #
     # config.time_zone = "Central Time (US & Canada)"
-    # config.eager_load_paths << Rails.root.join("extras")
+    config.time_zone = "Europe/Moscow"
+    config.i18n.default_locale = :ru
+    config.i18n.available_locales = %i[ru en]
+
+    config.autoload_paths << Rails.root.join("app/services")
+    config.eager_load_paths << Rails.root.join("app/services")
   end
 end

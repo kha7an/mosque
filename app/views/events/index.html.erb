@@ -1,0 +1,22 @@
+<% content_for :title, "#{t('events.page.index_title')} — Казан-нуры" %>
+<% content_for :description, t("events.page.index_meta_description") %>
+
+<%= render "shared/topbar", links: link_to(t("events.page.back_home"), root_path) %>
+<%= render "shared/site_header", solid: true, active: :events, show_donate: true %>
+
+<section class="events events--standalone">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker"><%= t("events.section.kicker") %></span>
+      <h1 class="events-page__title"><%= t("events.page.index_title") %></h1>
+    </div>
+
+    <% if @events.any? %>
+      <div class="events__grid events__grid--list">
+        <%= render partial: "card", collection: @events, as: :event %>
+      </div>
+    <% else %>
+      <p class="muted"><%= t("events.empty") %></p>
+    <% end %>
+  </div>
+</section>

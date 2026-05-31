@@ -1,0 +1,15 @@
+eid:
+  title: Ид аль-Адха в Казани
+  description: Праздничный гает-намаз
+  starts_at: <%= 1.day.from_now.change(hour: 6) %>
+  location: мечеть и парк
+  category: special
+  featured: true
+
+friday_khutba:
+  title: "Җомга: «Уроки Хаджа»"
+  description: Пятничная проповедь
+  starts_at: <%= 3.days.from_now.change(hour: 13) %>
+  location: большой зал
+  category: khutba
+  featured: false

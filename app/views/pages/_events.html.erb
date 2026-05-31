@@ -1,0 +1,49 @@
+<section class="events" id="events">
+  <div class="container">
+    <div class="section-head section-head--row">
+      <div>
+        <span class="kicker"><%= t("events.section.kicker") %></span>
+        <h2><%= t("events.section.title") %></h2>
+      </div>
+      <% if @featured_event || @upcoming_events.any? %>
+        <%= link_to t("events.section.all"), events_path, class: "link-arrow" %>
+      <% end %>
+    </div>
+
+    <% if @featured_event %>
+      <article class="event-featured">
+        <%= link_to event_path(@featured_event), class: "event-featured__media event-featured__media--link" do %>
+          <div class="event-featured__badge">
+            <span class="event-featured__day"><%= @featured_event.day_label %></span>
+            <span class="event-featured__month"><%= @featured_event.month_label %></span>
+          </div>
+        <% end %>
+        <div class="event-featured__body">
+          <% if @featured_event.category_label.present? %>
+            <span class="event__tag"><%= @featured_event.category_label %></span>
+          <% end %>
+          <h3>
+            <%= link_to @featured_event.title, event_path(@featured_event), class: "event-featured__title-link" %>
+          </h3>
+          <% if @featured_event.description.present? %>
+            <p><%= event_excerpt(@featured_event, length: 110) %></p>
+          <% end %>
+          <div class="event-featured__footer">
+            <% if @featured_event.meta_label.present? %>
+              <span class="event__meta"><%= @featured_event.meta_label %></span>
+            <% end %>
+            <%= link_to t("events.read_more"), event_path(@featured_event), class: "btn btn--primary" %>
+          </div>
+        </div>
+      </article>
+    <% end %>
+
+    <% if @upcoming_events.any? %>
+      <div class="events__grid">
+        <%= render partial: "events/card", collection: @upcoming_events, as: :event %>
+      </div>
+    <% elsif @featured_event.blank? %>
+      <p class="muted"><%= t("events.empty") %></p>
+    <% end %>
+  </div>
+</section>

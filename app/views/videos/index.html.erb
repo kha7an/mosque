@@ -1,0 +1,23 @@
+<% content_for :title, "#{t('videos.page.title')} — Казан-нуры" %>
+<% content_for :description, t("videos.page.meta_description") %>
+
+<%= render "shared/topbar", links: link_to(t("videos.page.back_home"), root_path) %>
+<%= render "shared/site_header", solid: true, active: :videos, show_donate: true %>
+
+<section class="sermons sermons--standalone" id="sermons">
+  <div class="container">
+    <div class="section-head section-head--row section-head--stack-mobile">
+      <div>
+        <span class="kicker">Видео и аудио</span>
+        <h1 class="sermons__page-title"><%= t("videos.page.title") %></h1>
+        <p class="muted"><%= t("videos.page.lead") %></p>
+      </div>
+      <%= render "shared/videos_filters", video_categories: @video_categories %>
+    </div>
+
+    <%= render "shared/videos_catalog",
+          videos: @videos,
+          video_categories: @video_categories,
+          show_all_link: false %>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+kazan:
+  name: Казань
+  slug: kazan
+  source_filename: kazan.xlsx
+  default: true
+
+naberezhnye_chelny:
+  name: Набережные Челны
+  slug: naberezhnye_chelny
+  source_filename: naberezhnye_chelny.xlsx
+  default: false

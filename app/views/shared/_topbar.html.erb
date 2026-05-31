@@ -1,0 +1,19 @@
+<%# locals: city_label (String), links (ActiveSupport::SafeBuffer, nil) %>
+<% city_label = local_assigns.fetch(:city_label, "г. Казань") %>
+<% links = local_assigns[:links] %>
+<div class="topbar">
+  <div class="container topbar__inner">
+    <div class="topbar__date">
+      <span class="topbar__date-gregorian"><%= l Time.zone.today, format: :long %></span>
+      <span class="dot topbar__date-sep" aria-hidden="true">·</span>
+      <span class="topbar__date-hijri"><%= l_hijri Time.zone.today %></span>
+      <span class="dot topbar__city-dot" aria-hidden="true">·</span>
+      <span class="topbar__city"><%= city_label %></span>
+    </div>
+    <% if links.present? %>
+      <div class="topbar__links topbar__links--page">
+        <%= links %>
+      </div>
+    <% end %>
+  </div>
+</div>

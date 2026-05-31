@@ -1,0 +1,43 @@
+<% show_all_link = local_assigns.fetch(:show_all_link, false) %>
+
+<% if videos.any? %>
+  <div class="sermons__grid" data-sermons-grid>
+    <%= render partial: "pages/sermon", collection: videos, as: :video %>
+  </div>
+<% else %>
+  <p class="sermons__empty muted"><%= t("videos.empty") %></p>
+<% end %>
+
+<%= render "pages/video_modal" %>
+
+<div class="sermons__footer">
+  <% if show_all_link %>
+    <%= link_to t("videos.all_videos"), videos_path, class: "btn btn--outline btn--lg" %>
+    <a
+      href="https://rutube.ru/channel/73172163/"
+      class="link-arrow"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <%= t("videos.subscribe_rutube") %> →
+    </a>
+  <% else %>
+    <%= link_to t("videos.page.back_home"), root_path, class: "link-arrow" %>
+    <a
+      href="https://rutube.ru/channel/73172163/videos/"
+      class="btn btn--outline btn--lg"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <%= t("videos.all_on_rutube") %>
+    </a>
+    <a
+      href="https://rutube.ru/channel/73172163/"
+      class="link-arrow"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <%= t("videos.subscribe_rutube") %> →
+    </a>
+  <% end %>
+</div>

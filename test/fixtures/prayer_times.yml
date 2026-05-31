@@ -1,0 +1,12 @@
+kazan_today:
+  city: kazan
+  date: <%= Date.current.to_s %>
+  end_suhur: 02:30
+  fajr: 02:40
+  sunrise: 04:15
+  zenith: 12:00
+  zuhr: 12:30
+  asr: 17:30
+  maghrib: 20:45
+  isha: 22:30
+  jumua: 13:30

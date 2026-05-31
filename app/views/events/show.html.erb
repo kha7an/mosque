@@ -1,0 +1,74 @@
+<% content_for :title, "#{@event.title} — Казан-нуры" %>
+<% content_for :description, event_excerpt(@event, length: 200) || @event.title %>
+
+<% topbar_links = capture do %>
+  <%= link_to t("events.page.back_to_events"), events_path %>
+  <span class="topbar__sep"> · </span>
+  <%= link_to t("events.page.back_home"), root_path %>
+<% end %>
+<%= render "shared/topbar", city_label: "г. Казань", links: topbar_links %>
+<%= render "shared/site_header", solid: true, active: :events, show_donate: true %>
+
+<article class="event-show">
+  <div class="event-show__hero">
+    <div class="container event-show__hero-body">
+      <nav class="event-show__breadcrumb" aria-label="breadcrumb">
+        <%= link_to t("events.page.back_home"), root_path %>
+        <span>/</span>
+        <%= link_to t("events.page.nav"), events_path %>
+        <span>/</span>
+        <span aria-current="page"><%= @event.title %></span>
+      </nav>
+      <% if @event.category_label.present? %>
+        <span class="event__tag event__tag--light"><%= @event.category_label %></span>
+      <% end %>
+      <h1 class="event-show__title"><%= @event.title %></h1>
+      <div class="event-show__hero-time">
+        <span class="event-show__day-num" aria-hidden="true"><%= @event.day_label %></span>
+        <div class="event-show__hero-time-text">
+          <time class="event-show__when" datetime="<%= @event.starts_at.iso8601 %>">
+            <%= @event.date_heading_label %>
+          </time>
+          <% if @event.meta_label.present? %>
+            <span class="event-show__meta"><%= @event.meta_label %></span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container event-show__wrap">
+    <div class="event-show__layout<%= ' event-show__layout--with-media' if @event.cover.attached? %>">
+      <% if @event.cover.attached? %>
+        <figure class="event-show__poster">
+          <%= image_tag @event.cover, class: "event-show__poster-img", alt: @event.title, loading: "eager", decoding: "async" %>
+        </figure>
+      <% end %>
+
+      <div class="event-show__content">
+        <% if @event.description.present? %>
+          <div class="event-show__body">
+            <div class="event-show__text">
+              <%= simple_format @event.description %>
+            </div>
+            <% if @event.link.present? %>
+              <div class="event-show__actions">
+                <%= link_to t("events.external_link"), @event.link, class: "btn btn--primary", target: "_blank", rel: "noopener noreferrer" %>
+              </div>
+            <% end %>
+          </div>
+        <% elsif @event.link.present? %>
+          <div class="event-show__actions-solo">
+            <%= link_to t("events.external_link"), @event.link, class: "btn btn--primary", target: "_blank", rel: "noopener noreferrer" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="event-show__footer">
+      <%= link_to events_path, class: "event-show__back link-arrow" do %>
+        ← <%= t("events.page.back_to_events") %>
+      <% end %>
+    </div>
+  </div>
+</article>

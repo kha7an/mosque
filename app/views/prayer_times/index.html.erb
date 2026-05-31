@@ -1,0 +1,89 @@
+<% content_for :title, "#{t('prayer_times.page.title')} — Казан-нуры" %>
+<% content_for :description, t("prayer_times.page.meta_description") %>
+
+<%= render "shared/topbar",
+      city_label: "г. #{@city&.name || 'Казань'}",
+      links: link_to(t("prayer_times.page.back_home"), root_path) %>
+<%= render "shared/site_header", solid: true, active: :prayertime, show_donate: true %>
+
+<main class="prayertime-page">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker"><%= t("prayer_times.schedule.kicker") %></span>
+      <h1 class="prayertime-page__title"><%= t("prayer_times.page.title") %></h1>
+      <p class="muted"><%= t("prayer_times.page.source", year: @year) %></p>
+    </div>
+
+    <%= form_with url: prayertime_path, method: :get, class: "prayertime__filters", data: { turbo: false } do |form| %>
+      <div class="prayertime__field">
+        <%= form.label :city, t("prayer_times.page.city_label"), class: "prayertime__label" %>
+        <%= form.select :city,
+          options_from_collection_for_select(@cities, :slug, :name, @city&.slug),
+          {},
+          class: "prayertime__select",
+          onchange: "this.form.requestSubmit()" %>
+      </div>
+
+      <div class="prayertime__nav">
+        <%= link_to "←",
+          prayertime_path(city: @city&.slug, from: @from_date - @period_days.days),
+          class: "prayertime__nav-btn",
+          aria: { label: "Предыдущие 30 дней" } %>
+        <span class="prayertime__period"><%= prayertime_period_label(@from_date, @to_date) %></span>
+        <%= link_to "→",
+          prayertime_path(city: @city&.slug, from: @from_date + @period_days.days),
+          class: "prayertime__nav-btn",
+          aria: { label: "Следующие 30 дней" } %>
+      </div>
+    <% end %>
+
+    <div class="prayertime-table-wrap">
+      <h2 class="prayertime-table__caption"><%= t("prayer_times.page.table_title") %></h2>
+
+      <% if @schedule.any? %>
+        <table class="prayertime-table">
+          <thead>
+            <tr>
+              <th rowspan="2"><%= t("prayer_times.page.columns.date") %></th>
+              <th colspan="2"><%= t("prayer_times.page.columns.morning") %></th>
+              <th rowspan="2"><%= t("prayer_times.page.columns.sunrise") %></th>
+              <th rowspan="2"><%= t("prayer_times.page.columns.zenith") %></th>
+              <th rowspan="2"><%= t("prayer_times.page.columns.zuhr") %></th>
+              <th rowspan="2"><%= t("prayer_times.page.columns.asr") %></th>
+              <th rowspan="2"><%= t("prayer_times.page.columns.maghrib") %></th>
+              <th rowspan="2"><%= t("prayer_times.page.columns.isha") %></th>
+            </tr>
+            <tr>
+              <th><%= t("prayer_times.page.columns.end_suhur") %></th>
+              <th><%= t("prayer_times.page.columns.fajr") %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @schedule.each do |row| %>
+              <tr class="<%= "prayertime-table__row--today" if row.date == Time.zone.today %>">
+                <th scope="row"><%= l(row.date, format: :short) %></th>
+                <td><%= prayer_time_value(row, :end_suhur) %></td>
+                <td><%= prayer_time_value(row, :fajr) %></td>
+                <td><%= prayer_time_value(row, :sunrise) %></td>
+                <td><%= prayer_time_value(row, :zenith) %></td>
+                <td><%= prayer_time_value(row, :zuhr) %></td>
+                <td><%= prayer_time_value(row, :asr) %></td>
+                <td><%= prayer_time_value(row, :maghrib) %></td>
+                <td><%= prayer_time_value(row, :isha) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <p class="prayertime__empty"><%= t("prayer_times.page.empty") %></p>
+      <% end %>
+    </div>
+  </div>
+</main>
+
+<footer class="footer footer--compact">
+  <div class="container footer__bottom">
+    <p>© <%= Time.zone.today.year %> Мечеть «Казан-нуры»</p>
+    <p><%= link_to t("prayer_times.page.back_home"), root_path %></p>
+  </div>
+</footer>

@@ -1,0 +1,35 @@
+<section class="prayer" id="prayer">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="kicker"><%= t("prayer_times.schedule.kicker") %></span>
+      <h2><%= t("prayer_times.schedule.title") %></h2>
+      <% if @prayer_schedule[:entries].any? %>
+        <p class="muted">
+          <%= @prayer_schedule[:date_label] %> · г. <%= @prayer_schedule[:city_name] %>
+        </p>
+      <% else %>
+        <p class="muted"><%= t("prayer_times.schedule.empty") %></p>
+      <% end %>
+    </div>
+
+    <% if @prayer_schedule[:entries].any? %>
+      <div class="prayer__grid">
+        <% @prayer_schedule[:entries].each do |entry| %>
+          <div class="prayer__card<%= " prayer__card--active" if entry.active %>">
+            <span class="prayer__name"><%= entry.name %></span>
+            <span class="prayer__time"><%= entry.time %></span>
+            <span class="prayer__azan"><%= entry.subtitle %></span>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="prayer__footer">
+        <p>
+          <strong>Җомга / Джума:</strong> хутба в 12:00 · намаз в 12:30 ·
+          залы открыты для братьев и сестёр.
+        </p>
+        <a href="<%= prayertime_path %>" class="link-arrow"><%= t("prayer_times.schedule.full_schedule") %></a>
+      </div>
+    <% end %>
+  </div>
+</section>
