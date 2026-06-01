@@ -1143,7 +1143,7 @@ em {
 
 /* ====== About ====== */
 .about {
-  padding: 130px 0;
+  padding: 70px 0;
   position: relative;
   z-index: 1;
 }
@@ -1218,7 +1218,7 @@ em {
 
 /* ====== SERMONS / VIDEOS ====== */
 .sermons {
-  padding: 130px 0;
+  padding: 70px 0;
   background: var(--bg-warm);
   position: relative;
   z-index: 1;
@@ -1649,7 +1649,7 @@ body.video-modal-open {
 
 /* ====== Services ====== */
 .services {
-  padding: 130px 0;
+  padding: 70px 0;
   background:
     linear-gradient(rgba(255, 250, 239, 0.96), rgba(255, 250, 239, 0.96)),
     var(--ornament-trellis);
@@ -1726,7 +1726,7 @@ body.video-modal-open {
 
 /* ====== Events ====== */
 .events {
-  padding: 130px 0;
+  padding: 70px 0;
   background:
     linear-gradient(rgba(240, 230, 207, 0.94), rgba(240, 230, 207, 0.94)),
     var(--ornament-trellis);
@@ -2121,7 +2121,7 @@ body.video-modal-open {
 
 /* ====== Donate ====== */
 .donate {
-  padding: 130px 0;
+  padding: 70px 0;
   background: linear-gradient(135deg, var(--navy) 0%, #0a1828 100%);
   color: #f6efe1;
   position: relative;
@@ -2339,6 +2339,13 @@ body.video-modal-open {
   color: rgba(214, 201, 168, 0.55);
   gap: 16px;
   flex-wrap: wrap;
+}
+.footer__bottom p {
+  margin: 0;
+  color: inherit;
+}
+.footer__bottom a:hover {
+  color: var(--gold-2);
 }
 .footer__bottom .dot { margin: 0 8px; }
 
@@ -2715,7 +2722,7 @@ body.video-modal-open {
   .prayer__footer { padding-top: 20px; font-size: 0.92rem; }
 
   /* About */
-  .about { padding: 72px 0; }
+  .about { padding: 10px 0; }
   .about__media {
     max-width: 420px;
     aspect-ratio: 1 / 1;
@@ -2731,7 +2738,7 @@ body.video-modal-open {
   .stat__num { font-size: 1.8rem; margin: 0; }
 
   /* Sermons */
-  .sermons { padding: 72px 0; }
+  .sermons { padding: 20px 0; }
   .sermons__filters {
     margin: 0 -18px;
     padding: 0 18px 6px;
