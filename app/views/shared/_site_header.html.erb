@@ -9,52 +9,60 @@
 <% donate_href = on_home ? "#donate" : root_path(anchor: "donate") %>
 <% logo_href = on_home ? "#" : root_path %>
 
-<header class="header<%= " header--solid" if local_assigns[:solid] %>" id="siteHeader">
-  <div class="container header__inner">
-    <%= link_to logo_href, class: "logo", "aria-label": "Казан-нуры" do %>
-      <%= render "shared/logo_mark" %>
-      <span class="logo__text">
-        <span class="logo__title">Казан-нуры</span>
-        <span class="logo__sub">قازان نوری</span>
-      </span>
-    <% end %>
+<div data-controller="mobile-nav" data-mobile-nav-breakpoint-value="760">
+  <header class="header<%= " header--solid" if local_assigns[:solid] %>" data-mobile-nav-target="header">
+    <div class="container header__inner">
+      <%= link_to logo_href, class: "logo", "aria-label": "Казан-нуры" do %>
+        <%= render "shared/logo_mark" %>
+        <span class="logo__text">
+          <span class="logo__title">Казан-нуры</span>
+          <span class="logo__sub">قازان نوری</span>
+        </span>
+      <% end %>
 
-    <nav class="nav" id="primaryNav" aria-label="Главное меню">
-      <div class="nav__panel-head">
-        <span class="nav__panel-title">Меню</span>
-        <button type="button" class="nav__close" id="navClose" aria-label="Закрыть меню">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
+      <nav class="nav" id="primaryNav" aria-label="Главное меню" data-mobile-nav-target="panel" data-action="click->mobile-nav#closeOnLinkClick">
+        <div class="nav__panel-head">
+          <span class="nav__panel-title">Меню</span>
+          <button type="button" class="nav__close" aria-label="Закрыть меню" data-action="mobile-nav#close">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </button>
+        </div>
+        <%= link_to "О мечети", about_href, class: ("is-active" if active == :about) %>
+        <%= link_to "Намазы", prayertime_path, class: ("is-active" if active == :prayertime) %>
+        <%= link_to "Хутбы", videos_path, class: ("is-active" if active == :videos) %>
+        <% if on_home %>
+          <%= link_to "Медресе", education_href %>
+        <% end %>
+        <%= link_to(on_home ? "События" : t("events.page.nav", default: "События"), events_href, class: ("is-active" if active == :events)) %>
+        <%= link_to "Контакты", contact_href, class: ("is-active" if active == :contact) %>
+        <% if show_donate %>
+          <%= link_to "Пожертвовать", donate_href, class: "nav__donate-mobile" %>
+        <% end %>
+      </nav>
+
+      <div class="header__actions">
+        <% if show_donate %>
+          <%= link_to "Пожертвовать", donate_href, class: "btn btn--primary header__donate" %>
+        <% end %>
+        <button
+          class="burger"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primaryNav"
+          aria-label="Открыть меню"
+          data-mobile-nav-target="toggleButton"
+          data-action="mobile-nav#toggle"
+        >
+          <span></span><span></span><span></span>
         </button>
       </div>
-      <%= link_to "О мечети", about_href, class: ("is-active" if active == :about) %>
-      <%= link_to "Намазы", prayertime_path, class: ("is-active" if active == :prayertime) %>
-      <%= link_to "Хутбы", videos_path, class: ("is-active" if active == :videos) %>
-      <% if on_home %>
-        <%= link_to "Медресе", education_href %>
-      <% end %>
-      <%= link_to(on_home ? "События" : t("events.page.nav", default: "События"), events_href, class: ("is-active" if active == :events)) %>
-      <%= link_to "Контакты", contact_href, class: ("is-active" if active == :contact) %>
-      <% if show_donate %>
-        <%= link_to "Пожертвовать", donate_href, class: "nav__donate-mobile" %>
-      <% end %>
-    </nav>
-
-    <div class="header__actions">
-      <% if show_donate %>
-        <%= link_to "Пожертвовать", donate_href, class: "btn btn--primary header__donate" %>
-      <% end %>
-      <button
-        class="burger"
-        id="burger"
-        type="button"
-        aria-expanded="false"
-        aria-controls="primaryNav"
-        aria-label="Открыть меню"
-      >
-        <span></span><span></span><span></span>
-      </button>
     </div>
-  </div>
-</header>
-<div class="nav-backdrop" id="navBackdrop" hidden aria-hidden="true"></div>
+  </header>
+  <div
+    class="nav-backdrop"
+    aria-hidden="true"
+    data-mobile-nav-target="backdrop"
+    data-action="click->mobile-nav#close"
+  ></div>
+</div>

@@ -55,6 +55,8 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  overflow-x: clip;
+  max-width: 100%;
 }
 [id] {
   scroll-margin-top: calc(var(--header-h) + 16px);
@@ -75,7 +77,9 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: clip;
+  max-width: 100%;
 }
+html.nav-open,
 body.nav-open {
   overflow: hidden;
   touch-action: none;
@@ -475,17 +479,6 @@ em {
 }
 
 .nav-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 48;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  background: rgba(34, 26, 16, 0.45);
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
-.nav-backdrop[hidden] {
   display: none;
 }
 
@@ -2470,11 +2463,11 @@ body.video-modal-open {
   .burger[aria-expanded="true"] span:nth-child(1),
   .burger[aria-expanded="true"] span:nth-child(3) { top: 21px; }
 
-  /* Side drawer */
+  /* Side drawer — slide via `right`, not translateX (avoids horizontal overflow) */
   .nav {
     position: fixed;
     top: 0;
-    right: 0;
+    right: calc(-1 * min(320px, 88vw));
     bottom: 0;
     left: auto;
     width: min(320px, 88vw);
@@ -2489,18 +2482,22 @@ body.video-modal-open {
     border-left: 1px solid var(--line-soft);
     border-bottom: none;
     box-shadow: -12px 0 40px rgba(34, 26, 16, 0.14);
-    transform: translateX(100%);
     visibility: hidden;
-    transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0.32s;
+    transition: right 0.32s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0.32s;
     z-index: 52;
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
+  .nav:not(.is-open) {
+    pointer-events: none;
+  }
   .nav.is-open {
-    transform: translateX(0);
+    right: 0;
     visibility: visible;
-    transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0s;
+    pointer-events: auto;
+    overscroll-behavior: contain;
+    transition: right 0.32s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0s;
   }
 
   .nav__panel-head {
@@ -2547,7 +2544,10 @@ body.video-modal-open {
   .nav__close span:last-child { transform: rotate(-45deg); }
 
   .nav > a {
-    padding: 16px 22px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 12px 22px;
     font-size: 1.08rem;
     border-bottom: 1px solid var(--line-soft);
     color: var(--ink);
@@ -2577,9 +2577,35 @@ body.video-modal-open {
     box-shadow: var(--shadow-sm), inset 3px 0 0 var(--gold-2);
   }
 
+  body.nav-open .header {
+    z-index: 53;
+  }
+
   .nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
     z-index: 51;
-    background: rgba(34, 26, 16, 0.5);
+    border: 0;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    background: rgba(7, 56, 41, 0.42);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+      visibility 0s linear 0.28s;
+  }
+  .nav-backdrop.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+      visibility 0s linear 0s;
   }
 
   /* Hero */
@@ -3137,7 +3163,7 @@ body.video-modal-open {
   .hadith__quote::after { width: 40px; height: 40px; }
   .hadith__quote::before { top: -14px; left: -14px; }
   .hadith__quote::after { bottom: -14px; right: -14px; }
-  .hero::after { width: 180px; height: 180px; top: 24px; right: -30px; }
+  .hero::after { display: none; }
 }
 
 /* ====== Mobile polish ====== */
