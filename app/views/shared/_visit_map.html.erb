@@ -1,0 +1,23 @@
+<%
+  map_lon = 49.13265
+  map_lat = 55.8189
+  map_zoom = 17
+  yandex_maps_url = "https://yandex.ru/maps/?ll=#{map_lon},#{map_lat}&pt=#{map_lon},#{map_lat}&z=#{map_zoom}"
+  widget_src = "https://yandex.ru/map-widget/v1/?ll=#{map_lon}%2C#{map_lat}&z=#{map_zoom}&pt=#{map_lon}%2C#{map_lat}%2Cpm2rdm&lang=ru_RU"
+%>
+<div class="visit__map-col">
+  <div class="visit__map">
+    <iframe
+      src="<%= widget_src %>"
+      title="Мечеть «Казан-нуры» — г. Казань, проспект Фатиха Амирхана, 3"
+      loading="lazy"
+      allowfullscreen="true"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+  <p class="visit__map-open">
+    <a href="<%= yandex_maps_url %>" target="_blank" rel="noopener noreferrer">
+      Открыть в Яндекс.Картах
+    </a>
+  </p>
+</div>

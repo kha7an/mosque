@@ -2194,22 +2194,36 @@ body.video-modal-open {
   padding-top: 3px;
   font-weight: 700;
 }
+.visit__map-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 .visit__map {
-  display: block;
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-md);
   aspect-ratio: 4 / 3;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 280px;
+  background: var(--line-soft);
 }
-.visit__map:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lg);
-}
-.visit__map svg {
+.visit__map iframe {
   width: 100%;
   height: 100%;
+  border: 0;
   display: block;
+}
+.visit__map-open {
+  margin: 0;
+  font-size: 0.88rem;
+  text-align: right;
+}
+.visit__map-open a {
+  color: var(--green);
+  font-weight: 500;
+}
+.visit__map-open a:hover {
+  color: var(--green-2);
 }
 
 /* ====== Newsletter ====== */
@@ -3207,9 +3221,10 @@ body.video-modal-open {
   }
 }
 
-/* Visit: map proportioned better on small screens */
+/* Visit: map on small screens */
 @media (max-width: 480px) {
-  .visit__map { aspect-ratio: 16 / 9; }
+  .visit__map { min-height: 240px; }
+  .visit__map-open { text-align: left; }
 }
 
 /* Events: compact layout on small phones */
