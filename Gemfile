@@ -63,3 +63,5 @@ end
 gem "rails-i18n", "~> 8.1"
 
 gem "hijri", "~> 0.6.0"
+
+gem "bcrypt", "~> 3.1"

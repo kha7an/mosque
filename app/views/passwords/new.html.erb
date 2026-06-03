@@ -1,0 +1,23 @@
+<% content_for :title, "Восстановление пароля" %>
+
+<main class="auth-page">
+  <section class="auth-card">
+    <h1 class="auth-card__title">Восстановление пароля</h1>
+
+    <% if flash[:alert] %>
+      <p class="auth-flash auth-flash--alert" role="alert"><%= flash[:alert] %></p>
+    <% end %>
+
+    <%= form_with url: passwords_path, class: "auth-form" do |form| %>
+      <div class="auth-form__field">
+        <%= form.label :login, "Логин" %>
+        <%= form.text_field :login, required: true, autofocus: true, autocomplete: "username", value: params[:login] %>
+      </div>
+      <%= form.submit "Отправить инструкции", class: "btn btn--primary auth-form__submit" %>
+    <% end %>
+
+    <p class="auth-card__footer">
+      <%= link_to "← Вернуться ко входу", new_session_path, class: "link-arrow" %>
+    </p>
+  </section>
+</main>

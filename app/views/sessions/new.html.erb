@@ -1,0 +1,29 @@
+<% content_for :title, "Вход в админку" %>
+
+<main class="auth-page">
+  <section class="auth-card">
+    <p class="auth-card__kicker">Администрирование</p>
+    <h1 class="auth-card__title">Вход</h1>
+    <p class="auth-card__lead">Войдите, чтобы открыть панель управления сайтом.</p>
+
+    <% if flash[:alert] %>
+      <p class="auth-flash auth-flash--alert" role="alert"><%= flash[:alert] %></p>
+    <% end %>
+    <% if flash[:notice] %>
+      <p class="auth-flash auth-flash--notice" role="status"><%= flash[:notice] %></p>
+    <% end %>
+
+    <%= form_with url: session_path, class: "auth-form" do |form| %>
+      <div class="auth-form__field">
+        <%= form.label :login, "Логин" %>
+        <%= form.text_field :login, required: true, autofocus: true, autocomplete: "username", value: params[:login] %>
+      </div>
+      <div class="auth-form__field">
+        <%= form.label :password, "Пароль" %>
+        <%= form.password_field :password, required: true, autocomplete: "current-password", maxlength: 72 %>
+      </div>
+      <%= form.submit "Войти", class: "btn btn--primary auth-form__submit" %>
+    <% end %>
+
+  </section>
+</main>

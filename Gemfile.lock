@@ -96,6 +96,7 @@ GEM
     avo-icons (0.1.4)
       inline_svg
     base64 (0.3.0)
+    bcrypt (3.1.22)
     bcrypt_pbkdf (1.1.2)
     bcrypt_pbkdf (1.1.2-arm64-darwin)
     bcrypt_pbkdf (1.1.2-x86_64-darwin)
@@ -418,6 +419,7 @@ PLATFORMS
 
 DEPENDENCIES
   avo (>= 3.2.1)
+  bcrypt (~> 3.1)
   bootsnap
   brakeman
   capybara

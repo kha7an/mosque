@@ -1,4 +1,16 @@
 ru:
+  sessions:
+    create:
+      invalid_credentials: "Неверный логин или пароль."
+      rate_limited: "Слишком много попыток. Попробуйте позже."
+  passwords:
+    create:
+      instructions_sent: "Если аккаунт с таким логином существует, мы отправили инструкции по сбросу пароля."
+    update:
+      reset: "Пароль обновлён. Войдите с новым паролем."
+      mismatch: "Пароли не совпадают."
+    edit:
+      invalid_token: "Ссылка недействительна или устарела."
   date:
     formats:
       long: "%-d %B %Y"
