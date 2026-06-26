@@ -9,4 +9,9 @@ def seed_admin_user
   puts "Admin user: #{user.login}"
 end
 
+def seed_gallery
+  Rake::Task["gallery:seed"].invoke
+end
+
 seed_admin_user
+seed_gallery
