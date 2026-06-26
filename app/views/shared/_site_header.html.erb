@@ -5,6 +5,7 @@
 <% about_href = on_home ? "#about" : root_path(anchor: "about") %>
 <% education_href = on_home ? "#education" : root_path(anchor: "education") %>
 <% events_href = on_home ? "#events" : events_path %>
+<% gallery_href = on_home ? "#gallery" : gallery_path %>
 <% contact_href = on_home ? "#contact" : root_path(anchor: "contact") %>
 <% donate_href = on_home ? "#donate" : root_path(anchor: "donate") %>
 <% logo_href = on_home ? "#" : root_path %>
@@ -35,6 +36,7 @@
           <%= link_to "Медресе", education_href %>
         <% end %>
         <%= link_to(on_home ? "События" : t("events.page.nav", default: "События"), events_href, class: ("is-active" if active == :events)) %>
+        <%= link_to "Галерея", gallery_href, class: ("is-active" if active == :gallery) %>
         <%= link_to "Контакты", contact_href, class: ("is-active" if active == :contact) %>
         <% if show_donate %>
           <%= link_to "Пожертвовать", donate_href, class: "nav__donate-mobile" %>

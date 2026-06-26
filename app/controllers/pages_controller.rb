@@ -8,5 +8,6 @@ class PagesController < ApplicationController
     feed = Event.homepage_feed(limit: 4)
     @featured_event = feed.find(&:featured?) || feed.first
     @upcoming_events = feed.reject { |event| event.id == @featured_event&.id }.first(3)
+    @gallery_groups = GalleryGroup.ordered.includes(gallery_photos: { image_attachment: :blob }).limit(3)
   end
 end

@@ -1,0 +1,104 @@
+<% content_for :title, "Фотогалерея — Казан-нуры" %>
+<% content_for :description, "Никах, имянаречение детей и ифтары Рамадана в мечети «Казан-нуры»." %>
+
+<%= render "shared/topbar", links: link_to("Назад на главную", root_path) %>
+<%= render "shared/site_header", solid: true, active: :gallery, show_donate: true %>
+
+<section class="gallery-hero">
+  <div class="container gallery-hero__body">
+    <div class="gallery-hero__breadcrumb">
+      <%= link_to "Главная", root_path %>
+      <span aria-hidden="true">/</span>
+      <span>Галерея</span>
+    </div>
+
+    <span class="kicker kicker--gold">Жизнь общины</span>
+    <h1 class="gallery-hero__title">Фотогалерея</h1>
+    <p class="gallery-hero__lead">
+      Никах, имянаречение детей и ифтары Рамадана — моменты,
+      которыми мечеть «Казан-нуры» делится с прихожанами.
+    </p>
+
+    <% if @groups.any? %>
+      <nav class="gallery-hero__jump" aria-label="Разделы галереи">
+        <% @groups.each do |group| %>
+          <a href="#<%= group.slug %>"><%= group.title %></a>
+        <% end %>
+      </nav>
+    <% end %>
+  </div>
+</section>
+
+<section class="gallery gallery--standalone">
+  <div class="container">
+    <% if @groups.none? %>
+      <p class="muted">Галерея пока пуста.</p>
+    <% else %>
+      <div class="gallery__groups">
+        <% @groups.each_with_index do |group, index| %>
+          <% photos = group.gallery_photos.select { |photo| photo.image.attached? } %>
+          <% next if photos.empty? %>
+
+          <div class="gallery__group" id="<%= group.slug %>">
+            <div class="gallery__group-head">
+              <span class="gallery__group-num"><%= format("%02d", index + 1) %></span>
+              <div>
+                <h2><%= group.title %></h2>
+                <p class="muted"><%= group.description %></p>
+              </div>
+            </div>
+
+            <div class="carousel" data-controller="carousel">
+              <div class="carousel__viewport">
+                <% photos.each_with_index do |photo, i| %>
+                  <div class="<%= class_names("carousel__slide", "is-active" => i == 0) %>" data-carousel-target="slide">
+                    <%= image_tag photo.image, class: "carousel__slide-bg", alt: "", aria: { hidden: true }, loading: (i == 0 ? "eager" : "lazy") %>
+                    <%= image_tag photo.image, class: "carousel__slide-fg",
+                          alt: "#{group.title} в мечети «Казан-нуры», фото #{i + 1}",
+                          loading: (i == 0 ? "eager" : "lazy") %>
+                  </div>
+                <% end %>
+                <% if photos.size > 1 %>
+                  <button type="button" class="carousel__nav carousel__nav--prev" data-action="carousel#prev" aria-label="Предыдущее фото">&#8249;</button>
+                  <button type="button" class="carousel__nav carousel__nav--next" data-action="carousel#next" aria-label="Следующее фото">&#8250;</button>
+                <% end %>
+              </div>
+
+              <% if photos.size > 1 %>
+                <div class="carousel__footer">
+                  <span class="carousel__counter" data-carousel-target="counter">1 / <%= photos.size %></span>
+                  <div class="carousel__dots">
+                    <% photos.each_with_index do |_photo, i| %>
+                      <button
+                        type="button"
+                        class="<%= class_names("carousel__dot", "is-active" => i == 0) %>"
+                        data-action="carousel#goTo"
+                        data-carousel-index-param="<%= i %>"
+                        data-carousel-target="dot"
+                        aria-label="Фото <%= i + 1 %>"
+                      ></button>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+          <% unless index == @groups.size - 1 %>
+            <div class="ornament" aria-hidden="true">
+              <span class="ornament__line"></span>
+              <svg class="ornament__star" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
+                  <path d="M60 10 L68 38 L96 30 L80 56 L106 66 L78 70 L82 100 L60 84 L38 100 L42 70 L14 66 L40 56 L24 30 L52 38 Z"/>
+                  <path d="M60 28 L64 44 L80 40 L72 56 L86 62 L70 64 L72 80 L60 72 L48 80 L50 64 L34 62 L48 56 L40 40 L56 44 Z"/>
+                  <circle cx="60" cy="60" r="3"/>
+                </g>
+              </svg>
+              <span class="ornament__line"></span>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</section>

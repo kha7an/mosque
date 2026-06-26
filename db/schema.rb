@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_06_03_125358) do
+ActiveRecord::Schema[8.0].define(version: 2026_06_26_175249) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -65,6 +65,24 @@ ActiveRecord::Schema[8.0].define(version: 2026_06_03_125358) do
     t.datetime "updated_at", null: false
     t.index ["featured"], name: "index_events_on_featured"
     t.index ["starts_at"], name: "index_events_on_starts_at"
+  end
+
+  create_table "gallery_groups", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "slug", null: false
+    t.text "description"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_gallery_groups_on_slug", unique: true
+  end
+
+  create_table "gallery_photos", force: :cascade do |t|
+    t.bigint "gallery_group_id", null: false
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gallery_group_id"], name: "index_gallery_photos_on_gallery_group_id"
   end
 
   create_table "prayer_time_imports", force: :cascade do |t|
@@ -123,6 +141,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_06_03_125358) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "gallery_photos", "gallery_groups"
   add_foreign_key "prayer_times", "cities"
   add_foreign_key "sessions", "users"
 end
