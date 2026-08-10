@@ -1,0 +1,73 @@
+<%# locals: compact (boolean) %>
+<% compact = local_assigns.fetch(:compact, false) %>
+
+<footer class="footer<%= " footer--compact" if compact %>">
+  <% unless compact %>
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <div class="logo logo--light">
+          <%= render "shared/logo_mark" %>
+          <span class="logo__text">
+            <span class="logo__title">Казан-нуры</span>
+            <span class="logo__sub">قازان نوری</span>
+          </span>
+        </div>
+        <p class="footer__about">
+          Мечеть «Казан-нуры» - место молитвы, знаний и общины
+          в сердце Татарстана. Двери открыты для каждого.
+        </p>
+      </div>
+
+      <div>
+        <h4>Навигация</h4>
+        <ul>
+          <li><%= link_to "О мечети", about_path %></li>
+          <li><%= link_to "Расписание намазов", prayertime_path %></li>
+          <li><%= link_to "Хутбы и проповеди", videos_path %></li>
+          <li><%= link_to "Медресе «Шамиль»", madrasa_path %></li>
+          <li><%= link_to "События", events_path %></li>
+          <li><%= link_to "Галерея", gallery_path %></li>
+          <li><%= link_to "Полезное", useful_path %></li>
+          <li><%= link_to "Контакты", contact_path %></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Услуги</h4>
+        <ul>
+          <li><%= link_to "Никах", nikah_path %></li>
+          <li><%= link_to root_path(anchor: "donate"), "Закят и садака" %></li>
+          <li><%= link_to root_path(anchor: "donate"), "Реквизиты вакфа" %></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Контакты</h4>
+        <ul>
+          <li>г. Казань, проспект Ф. Амирхана, 3</li>
+          <li>ДУМ Республики Татарстан</li>
+          <li><a href="http://kazan-nury.ru" target="_blank" rel="noopener noreferrer">kazan-nury.ru</a></li>
+        </ul>
+        <div class="footer__socials">
+          <a href="https://t.me/kazan_noor" target="_blank" rel="noopener noreferrer" aria-label="Telegram">TG</a>
+          <a href="https://vk.com/kazan_nur" target="_blank" rel="noopener noreferrer" aria-label="VK">VK</a>
+          <a href="https://rutube.ru/channel/73172163/" target="_blank" rel="noopener noreferrer" aria-label="Rutube">RT</a>
+          <a href="https://www.instagram.com/kazan_noor_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="container footer__bottom">
+    <p>© <%= Time.zone.today.year %> Мечеть «Казан-нуры»</p>
+    <p>
+      <% if compact %>
+        <%= link_to t("pages.breadcrumb_home"), root_path %>
+      <% else %>
+        <a href="#">Политика конфиденциальности</a>
+        <span class="dot">·</span>
+        <a href="#">Условия использования</a>
+      <% end %>
+    </p>
+  </div>
+</footer>

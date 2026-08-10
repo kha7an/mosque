@@ -1,0 +1,108 @@
+<% content_for :title, "#{t('pages.useful.title')} - Казан-нуры" %>
+<% content_for :description, t("pages.useful.meta_description") %>
+
+<%= render "shared/topbar", links: link_to(t("pages.back_home"), root_path) %>
+<%= render "shared/site_header", solid: true, active: :useful, show_donate: true %>
+
+<%= render "shared/page_hero",
+      kicker: t("pages.useful.kicker"),
+      title: t("pages.useful.title"),
+      lead: t("pages.useful.lead"),
+      jump_links: [
+        { label: "Хадис дня", href: "#hadith" },
+        { label: "Видео", href: "#videos" },
+        { label: "Фото", href: "#gallery" },
+        { label: "Новости", href: "#news" }
+      ] %>
+
+<div class="useful-page">
+  <section class="useful-section" id="hadith">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Дуа и хадисы</span>
+        <h2>Хадис дня</h2>
+        <p class="muted"><%= t("pages.useful.hadith_lead") %></p>
+      </div>
+
+      <% if @hadith %>
+        <blockquote class="useful-hadith">
+          <p class="useful-hadith__arabic" dir="rtl" lang="ar"><%= @hadith.arabic %></p>
+          <p class="useful-hadith__translation">«<%= @hadith.translation %>»</p>
+          <footer class="useful-hadith__source">
+            <span><%= t("hadiths.narrated_by", narrator: @hadith.narrator) %></span>
+            <span><%= @hadith.book_label %></span>
+          </footer>
+        </blockquote>
+      <% end %>
+    </div>
+  </section>
+
+  <section class="useful-section useful-section--alt" id="videos">
+    <div class="container">
+      <div class="section-head section-head--row">
+        <div>
+          <span class="kicker">Видео</span>
+          <h2>Хутбы и лекции</h2>
+          <p class="muted"><%= t("pages.useful.videos_lead") %></p>
+        </div>
+        <%= link_to t("videos.all_videos"), videos_path, class: "link-arrow" %>
+      </div>
+
+      <%= render "shared/videos_catalog",
+            videos: @videos,
+            video_categories: @video_categories,
+            show_all_link: false %>
+    </div>
+  </section>
+
+  <section class="useful-section" id="gallery">
+    <div class="container">
+      <div class="section-head section-head--row">
+        <div>
+          <span class="kicker kicker--gold">Фотогалерея</span>
+          <h2>Жизнь общины</h2>
+          <p class="muted"><%= t("pages.useful.gallery_lead") %></p>
+        </div>
+        <%= link_to "Вся галерея →", gallery_path, class: "link-arrow" %>
+      </div>
+
+      <% if @gallery_groups.any? %>
+        <div class="gallery-teaser__grid">
+          <% @gallery_groups.each do |group| %>
+            <% cover = group.gallery_photos.first %>
+            <% next unless cover&.image&.attached? %>
+            <%= link_to gallery_path(anchor: group.slug), class: "gallery-teaser__item" do %>
+              <%= image_tag cover.image, alt: "#{group.title} в мечети «Казан-нуры»", loading: "lazy" %>
+              <span class="gallery-teaser__label"><%= group.title %></span>
+            <% end %>
+          <% end %>
+        </div>
+      <% else %>
+        <p class="muted"><%= t("pages.useful.gallery_empty") %></p>
+      <% end %>
+    </div>
+  </section>
+
+  <section class="useful-section useful-section--alt" id="news">
+    <div class="container">
+      <div class="section-head section-head--row">
+        <div>
+          <span class="kicker"><%= t("events.section.kicker") %></span>
+          <h2><%= t("events.section.title") %></h2>
+          <p class="muted"><%= t("pages.useful.news_lead") %></p>
+        </div>
+        <%= link_to t("events.section.all"), events_path, class: "link-arrow" %>
+      </div>
+
+      <% if @events.any? %>
+        <div class="events__grid events__grid--list useful-events">
+          <%= render partial: "events/card", collection: @events, as: :event %>
+        </div>
+      <% else %>
+        <p class="muted"><%= t("events.empty") %></p>
+      <% end %>
+    </div>
+  </section>
+</div>
+
+<%= render "shared/site_footer" %>

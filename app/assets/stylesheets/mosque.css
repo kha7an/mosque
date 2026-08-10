@@ -1,4 +1,4 @@
-/* ====== Tokens — warm Tatar palette ====== */
+/* ====== Tokens - warm Tatar palette ====== */
 :root {
   /* Тёплый фон */
   --bg: #f6efe1;          /* основной молочно-охровый */
@@ -19,7 +19,7 @@
   --green-dark: #073829;
   --navy: #11253a;
 
-  /* Тёплое золото / терракота — татарский акцент */
+  /* Тёплое золото / терракота - татарский акцент */
   --gold: #b8893d;
   --gold-2: #d8b070;
   --gold-soft: #efdbab;
@@ -490,7 +490,7 @@ em {
   display: none;
 }
 
-/* ====== HERO — split-layout ====== */
+/* ====== HERO - split-layout ====== */
 .hero {
   position: relative;
   padding: 70px 0 90px;
@@ -1200,6 +1200,9 @@ em {
   padding: 30px 0;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+}
+.about__more {
+  margin-top: 8px;
 }
 .stat__num {
   display: block;
@@ -2015,12 +2018,14 @@ body.video-modal-open {
 }
 
 /* ====== Страница галереи ====== */
-.gallery-hero {
+.gallery-hero,
+.page-hero {
   position: relative;
   background: linear-gradient(140deg, var(--green-dark) 0%, var(--navy) 100%);
   overflow: hidden;
 }
-.gallery-hero::before {
+.gallery-hero::before,
+.page-hero::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -2029,14 +2034,16 @@ body.video-modal-open {
   opacity: 0.1;
   pointer-events: none;
 }
-.gallery-hero__body {
+.gallery-hero__body,
+.page-hero__body {
   position: relative;
   z-index: 1;
   color: #fff;
   padding-top: 88px;
   padding-bottom: 52px;
 }
-.gallery-hero__breadcrumb {
+.gallery-hero__breadcrumb,
+.page-hero__breadcrumb {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -2044,33 +2051,40 @@ body.video-modal-open {
   color: rgba(255, 255, 255, 0.55);
   margin-bottom: 22px;
 }
-.gallery-hero__breadcrumb a {
+.gallery-hero__breadcrumb a,
+.page-hero__breadcrumb a {
   color: inherit;
   transition: color 0.2s;
 }
-.gallery-hero__breadcrumb a:hover {
+.gallery-hero__breadcrumb a:hover,
+.page-hero__breadcrumb a:hover {
   color: rgba(255, 255, 255, 0.9);
 }
-.gallery-hero .kicker--gold {
+.gallery-hero .kicker--gold,
+.page-hero .kicker--gold {
   color: var(--gold-2);
 }
-.gallery-hero__title {
+.gallery-hero__title,
+.page-hero__title {
   font-size: clamp(2.1rem, 4.2vw, 3rem);
   color: #fff;
   margin: 10px 0 14px;
 }
-.gallery-hero__lead {
+.gallery-hero__lead,
+.page-hero__lead {
   max-width: 560px;
   color: rgba(255, 255, 255, 0.78);
   font-size: 1.02rem;
   margin-bottom: 32px;
 }
-.gallery-hero__jump {
+.gallery-hero__jump,
+.page-hero__jump {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
 }
-.gallery-hero__jump a {
+.gallery-hero__jump a,
+.page-hero__jump a {
   display: inline-flex;
   align-items: center;
   padding: 10px 22px;
@@ -2081,7 +2095,8 @@ body.video-modal-open {
   color: rgba(255, 255, 255, 0.85);
   transition: all 0.25s ease;
 }
-.gallery-hero__jump a:hover {
+.gallery-hero__jump a:hover,
+.page-hero__jump a:hover {
   border-color: var(--gold-2);
   background: rgba(212, 175, 110, 0.12);
   color: var(--gold-2);
@@ -2710,7 +2725,7 @@ body.video-modal-open {
   }
   .topbar .topbar__links:not(.topbar__links--page) { display: none; }
 
-  /* Header — compact bar + side drawer (как rauza-m.ru) */
+  /* Header - compact bar + side drawer (как rauza-m.ru) */
   .header__inner {
     gap: 10px;
     min-height: var(--header-h);
@@ -2743,7 +2758,7 @@ body.video-modal-open {
   .burger[aria-expanded="true"] span:nth-child(1),
   .burger[aria-expanded="true"] span:nth-child(3) { top: 21px; }
 
-  /* Side drawer — slide via `right`, not translateX (avoids horizontal overflow) */
+  /* Side drawer - slide via `right`, not translateX (avoids horizontal overflow) */
   .nav {
     position: fixed;
     top: 0;
@@ -2958,7 +2973,7 @@ body.video-modal-open {
     margin-bottom: 28px;
   }
 
-  /* Prayer schedule (home) — 3×2 на мобиле */
+  /* Prayer schedule (home) - 3×2 на мобиле */
   .prayer { padding: 64px 0; }
   .prayer__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -3272,7 +3287,7 @@ body.video-modal-open {
   .ornament { padding: 32px 16px; }
 }
 
-/* Very narrow phones — 2 колонки × 3 ряда */
+/* Very narrow phones - 2 колонки × 3 ряда */
 @media (max-width: 360px) {
   .prayer__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3319,7 +3334,7 @@ body.video-modal-open {
 
 /* ====== Islamic–Tatar ornaments ====== */
 
-/* Decorative divider between sections — gold filigree with a central rosette */
+/* Decorative divider between sections - gold filigree with a central rosette */
 .ornament {
   display: flex;
   align-items: center;
@@ -3424,7 +3439,7 @@ body.video-modal-open {
   transform: rotate(22.5deg);
 }
 
-/* Hero — soft star halo behind photo composition */
+/* Hero - soft star halo behind photo composition */
 .hero::after {
   content: "";
   position: absolute;
@@ -3440,7 +3455,7 @@ body.video-modal-open {
   z-index: 0;
 }
 
-/* Footer — thin ornamental band on top */
+/* Footer - thin ornamental band on top */
 .footer {
   background-image:
     linear-gradient(180deg, rgba(184, 137, 61, 0.18), transparent 4px),
@@ -3695,4 +3710,692 @@ body.video-modal-open {
 .auth-form__submit {
   width: 100%;
   margin-top: 0.25rem;
+}
+
+/* ====== Контентные страницы ====== */
+.content-page {
+  padding: 56px 0 100px;
+  position: relative;
+  z-index: 1;
+}
+.content-page__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 48px;
+  align-items: start;
+}
+.content-page__layout--single {
+  grid-template-columns: minmax(0, 820px);
+  justify-content: center;
+}
+.content-page__body {
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  padding: 40px 44px;
+  box-shadow: var(--shadow-sm);
+}
+.prose {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--ink);
+}
+.prose h2 {
+  font-size: 1.45rem;
+  margin: 2.2em 0 0.8em;
+}
+.prose h2:first-child {
+  margin-top: 0;
+}
+.prose h3 {
+  font-size: 1.15rem;
+  margin: 1.8em 0 0.6em;
+}
+.prose p {
+  margin: 0;
+}
+.prose p + p,
+.prose ul,
+.prose ol {
+  margin-top: 1.1em;
+}
+.prose ul,
+.prose ol {
+  padding-left: 1.4em;
+}
+.prose li + li {
+  margin-top: 0.45em;
+}
+.prose a {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose a:hover {
+  color: var(--green-dark);
+}
+.prose__closing {
+  margin-top: 2em;
+  font-style: italic;
+  color: var(--ink-2);
+}
+.content-page__aside {
+  display: grid;
+  gap: 20px;
+  position: sticky;
+  top: 96px;
+}
+.content-page__card {
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  padding: 24px 26px;
+  box-shadow: var(--shadow-sm);
+}
+.content-page__card h3 {
+  font-size: 1rem;
+  margin: 0 0 14px;
+  color: var(--green-dark);
+}
+.content-page__card-text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+.content-page__facts,
+.content-page__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.content-page__facts strong {
+  color: var(--green);
+  font-weight: 600;
+}
+.content-page__links a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.content-page__links a:hover {
+  color: var(--green);
+}
+
+.visit--standalone {
+  padding: 56px 0 100px;
+  position: relative;
+  z-index: 1;
+}
+.visit__socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+.visit__socials a {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 18px;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--green-dark);
+  transition: all 0.2s ease;
+}
+.visit__socials a:hover {
+  border-color: var(--gold);
+  color: var(--green);
+}
+
+/* ====== Полезное ====== */
+.useful-page {
+  position: relative;
+  z-index: 1;
+}
+.useful-section {
+  padding: 64px 0;
+}
+.useful-section--alt {
+  background: var(--bg-warm);
+}
+.useful-hadith {
+  margin: 0;
+  padding: 40px 36px;
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  max-width: 820px;
+}
+.useful-hadith__arabic {
+  font-family: var(--arabic);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  line-height: 1.7;
+  color: var(--green-dark);
+  margin: 0 0 20px;
+}
+.useful-hadith__translation {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0 0 20px;
+}
+.useful-hadith__source {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 20px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.useful-events {
+  margin-top: 8px;
+}
+
+@media (max-width: 900px) {
+  .content-page__layout {
+    grid-template-columns: 1fr;
+  }
+  .content-page__aside {
+    position: static;
+  }
+  .content-page__body {
+    padding: 28px 24px;
+  }
+}
+
+/* ====== Страница медресе ====== */
+.content-page--madrasa .content-page__body {
+  padding: 48px 52px;
+}
+.madrasa-page__section + .madrasa-page__section {
+  margin-top: 0;
+}
+.madrasa-page__head {
+  margin-bottom: 28px;
+}
+.madrasa-page__head .kicker {
+  margin-bottom: 10px;
+}
+.madrasa-page__head h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.55rem, 3vw, 1.9rem);
+  font-weight: 400;
+  color: var(--green-dark);
+  margin: 0;
+  line-height: 1.2;
+}
+.madrasa-page__lead {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--ink);
+}
+.madrasa-page__lead p {
+  margin: 0;
+}
+.madrasa-page__lead strong {
+  color: var(--green-dark);
+  font-weight: 600;
+}
+.madrasa-page__meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 28px;
+  padding: 20px 22px;
+  background: var(--bg-warm);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+}
+.madrasa-page__meta-label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.madrasa-page__meta-value {
+  font-size: 0.92rem;
+  color: var(--ink);
+  line-height: 1.4;
+}
+.madrasa-page__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 32px 0;
+}
+.madrasa-page__stat {
+  padding: 22px 16px;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.madrasa-page__stat-num {
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 400;
+  color: var(--green);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.madrasa-page__stat-label {
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--muted);
+}
+.madrasa-page__block {
+  margin-top: 36px;
+}
+.madrasa-page__block--accent {
+  padding: 28px 30px;
+  background: linear-gradient(135deg, rgba(13, 91, 70, 0.06) 0%, rgba(184, 137, 61, 0.08) 100%);
+  border: 1px solid rgba(13, 91, 70, 0.12);
+  border-radius: var(--radius-lg);
+}
+.madrasa-page__block--accent p {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--ink);
+}
+.madrasa-page__block--accent p + p {
+  margin-top: 1em;
+}
+.madrasa-page__subtitle {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--green-dark);
+  margin: 0 0 16px;
+}
+.madrasa-page__tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.madrasa-page__tags li {
+  padding: 8px 16px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--green-dark);
+  background: rgba(13, 91, 70, 0.08);
+  border: 1px solid rgba(13, 91, 70, 0.14);
+  border-radius: 100px;
+}
+.madrasa-page__note {
+  margin: 18px 0 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+.madrasa-page__highlight {
+  margin-top: 1.2em;
+  padding-top: 1.2em;
+  border-top: 1px solid rgba(13, 91, 70, 0.12);
+  color: var(--green-dark);
+}
+.madrasa-page__directions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+.madrasa-page__directions li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+}
+.madrasa-page__direction-num {
+  flex: 0 0 auto;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--gold);
+  line-height: 1;
+  font-weight: 500;
+}
+.madrasa-page__directions span:last-child {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.madrasa-page__divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 48px 0;
+  color: var(--gold-soft);
+}
+.madrasa-page__divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.madrasa-page__divider-star {
+  font-size: 0.9rem;
+  color: var(--gold);
+}
+.madrasa-page__course-banner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 26px 28px;
+  margin-bottom: 32px;
+  background: linear-gradient(140deg, var(--green-dark) 0%, #0a4a38 100%);
+  border-radius: var(--radius-lg);
+  color: #fff;
+}
+.madrasa-page__course-title {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin: 0 0 8px;
+  color: #fff;
+}
+.madrasa-page__course-meta {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.5;
+}
+.madrasa-page__course-badge {
+  flex: 0 0 auto;
+  padding: 6px 14px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-dark);
+  background: var(--gold-2);
+  border-radius: 100px;
+}
+.madrasa-page__subjects {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+.madrasa-page__subjects li {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 12px 20px;
+  align-items: baseline;
+  padding: 14px 18px;
+  background: var(--bg-warm);
+  border-radius: var(--radius);
+  border: 1px solid var(--line-soft);
+}
+.madrasa-page__subject-term {
+  font-weight: 600;
+  color: var(--green-dark);
+  font-size: 0.95rem;
+}
+.madrasa-page__subject-desc {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.madrasa-page__shifts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.madrasa-page__shift {
+  padding: 20px 16px;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.madrasa-page__shift-label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.madrasa-page__shift-time {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: var(--green);
+}
+.madrasa-page__chips {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.madrasa-page__chips li {
+  padding: 10px 16px;
+  font-size: 0.88rem;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.madrasa-page__chips li:hover {
+  border-color: var(--gold);
+  color: var(--green-dark);
+}
+.madrasa-page__short-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 36px;
+}
+.madrasa-page__short-card {
+  padding: 22px 20px;
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+.madrasa-page__short-card p {
+  margin: 10px 0 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--ink);
+  font-weight: 500;
+}
+.madrasa-page__short-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-dark);
+  background: rgba(13, 91, 70, 0.1);
+  border-radius: 100px;
+}
+.madrasa-page__callout {
+  margin-top: 24px;
+  padding: 20px 22px;
+  background: rgba(184, 137, 61, 0.1);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.madrasa-page__callout p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+.madrasa-page__enroll {
+  margin-top: 48px;
+}
+.madrasa-page__enroll-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 32px 36px;
+  background: linear-gradient(135deg, var(--green-dark) 0%, #0a4a38 100%);
+  border-radius: var(--radius-lg);
+  color: #fff;
+}
+.madrasa-page__enroll h2 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0 0 12px;
+  color: #fff;
+}
+.madrasa-page__enroll p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 520px;
+}
+.madrasa-page__enroll-action {
+  flex: 0 0 auto;
+  text-align: center;
+  padding: 24px 28px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(4px);
+}
+.madrasa-page__enroll-label {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-2);
+  margin-bottom: 6px;
+}
+.madrasa-page__enroll-phone {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  color: #fff;
+  text-decoration: none;
+  line-height: 1.2;
+  transition: color 0.2s ease;
+}
+.madrasa-page__enroll-phone:hover {
+  color: var(--gold-2);
+}
+.madrasa-page__enroll-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+.madrasa-page__aside-card--cta {
+  background: linear-gradient(140deg, var(--green-dark) 0%, #0a4a38 100%);
+  border-color: transparent;
+  color: #fff;
+}
+.madrasa-page__aside-card--cta h3 {
+  color: var(--gold-2);
+}
+.madrasa-page__aside-cta-text {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+.madrasa-page__aside-phone {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 4px;
+}
+.madrasa-page__aside-phone:hover {
+  color: var(--gold-2);
+}
+.madrasa-page__aside-hint {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+.madrasa-page__aside-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 14px;
+}
+.madrasa-page__aside-list li {
+  display: grid;
+  gap: 4px;
+}
+.madrasa-page__aside-key {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+.madrasa-page__aside-list a {
+  color: var(--green);
+  text-decoration: none;
+}
+.madrasa-page__aside-list a:hover {
+  color: var(--green-dark);
+}
+.madrasa-page__aside-card--cta .madrasa-page__aside-list a {
+  color: var(--gold-2);
+}
+
+@media (max-width: 900px) {
+  .content-page--madrasa .content-page__body {
+    padding: 28px 22px;
+  }
+  .madrasa-page__meta {
+    grid-template-columns: 1fr;
+  }
+  .madrasa-page__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .madrasa-page__course-banner {
+    flex-direction: column;
+  }
+  .madrasa-page__subjects li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .madrasa-page__shifts {
+    grid-template-columns: 1fr;
+  }
+  .madrasa-page__short-grid {
+    grid-template-columns: 1fr;
+  }
+  .madrasa-page__enroll-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .madrasa-page__enroll-action {
+    width: 100%;
+  }
 }

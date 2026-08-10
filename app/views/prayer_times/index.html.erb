@@ -1,4 +1,4 @@
-<% content_for :title, "#{t('prayer_times.page.title')} — Казан-нуры" %>
+<% content_for :title, "#{t('prayer_times.page.title')} - Казан-нуры" %>
 <% content_for :description, t("prayer_times.page.meta_description") %>
 
 <%= render "shared/topbar",
@@ -81,9 +81,4 @@
   </div>
 </main>
 
-<footer class="footer footer--compact">
-  <div class="container footer__bottom">
-    <p>© <%= Time.zone.today.year %> Мечеть «Казан-нуры»</p>
-    <p><%= link_to t("prayer_times.page.back_home"), root_path %></p>
-  </div>
-</footer>
+<%= render "shared/site_footer", compact: true %>

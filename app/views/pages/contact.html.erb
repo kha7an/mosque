@@ -1,0 +1,58 @@
+<% content_for :title, "#{t('pages.contact.title')} - Казан-нуры" %>
+<% content_for :description, t("pages.contact.meta_description") %>
+
+<%= render "shared/topbar", links: link_to(t("pages.back_home"), root_path) %>
+<%= render "shared/site_header", solid: true, active: :contact, show_donate: true %>
+
+<%= render "shared/page_hero",
+      kicker: t("pages.contact.kicker"),
+      title: t("pages.contact.title"),
+      lead: t("pages.contact.lead") %>
+
+<section class="visit visit--standalone">
+  <div class="container visit__grid">
+    <div class="visit__info">
+      <ul class="visit__list">
+        <li>
+          <strong>Адрес</strong>
+          <span>г. Казань, проспект Фатиха Амирхана, д. 3</span>
+        </li>
+        <li>
+          <strong>Медресе «Шамиль»</strong>
+          <span>г. Казань, ул. Фатыха Амирхана, 3, корп. 2</span>
+        </li>
+        <li>
+          <strong>Телефон медресе</strong>
+          <span><a href="tel:+78435231665">+7 (843) 523-16-65</a></span>
+        </li>
+        <li>
+          <strong>Запись на курсы</strong>
+          <span><a href="tel:+79179335775">+7 (917) 933-57-75</a> (WhatsApp)</span>
+        </li>
+        <li>
+          <strong>Координаты</strong>
+          <span>55°49′08″ с. ш. 49°07′58″ в. д.</span>
+        </li>
+        <li>
+          <strong>ДУМ</strong>
+          <span>Республики Татарстан · сунниты, ханафиты</span>
+        </li>
+        <li>
+          <strong>Сайт</strong>
+          <span><a href="http://kazan-nury.ru" target="_blank" rel="noopener noreferrer">kazan-nury.ru</a></span>
+        </li>
+      </ul>
+
+      <div class="visit__socials">
+        <a href="https://t.me/kazan_noor" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a href="https://vk.com/kazan_nur" target="_blank" rel="noopener noreferrer">VK</a>
+        <a href="https://rutube.ru/channel/73172163/" target="_blank" rel="noopener noreferrer">Rutube</a>
+        <a href="https://www.instagram.com/kazan_noor_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+    </div>
+
+    <%= render "shared/visit_map" %>
+  </div>
+</section>
+
+<%= render "shared/site_footer" %>

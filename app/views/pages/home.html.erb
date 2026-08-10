@@ -25,14 +25,14 @@
         <div class="hero__text">
           <p class="eyebrow">بسم الله الرحمن الرحيم</p>
           <h1 class="hero__title">
-            Свет Казани —<br />
+            Свет Казани -<br />
             <em>«Казан нуры» мәчете</em>
           </h1>
           <p class="hero__lead">
             Мечеть в татарских традициях, построенная в 1999 году
             по проекту заслуженного архитектора Рафика Билялова.
             Деревянное здание на пересечении улицы Чистопольской
-            и проспекта Фатиха Амирхана — место молитвы, знания
+            и проспекта Фатиха Амирхана - место молитвы, знания
             и общины.
           </p>
           <div class="hero__cta">
@@ -79,7 +79,7 @@
       <div class="ticker__track">
         <span>إِنَّ مَعَ الْعُسْرِ يُسْرًا</span>
         <span>·</span>
-        <span>Воистину, с трудностью — облегчение</span>
+        <span>Воистину, с трудностью - облегчение</span>
         <span>·</span>
         <span>«Казан-нуры» · مَسْجِد</span>
         <span>·</span>
@@ -87,7 +87,7 @@
         <span>·</span>
         <span>إِنَّ مَعَ الْعُسْرِ يُسْرًا</span>
         <span>·</span>
-        <span>Воистину, с трудностью — облегчение</span>
+        <span>Воистину, с трудностью - облегчение</span>
         <span>·</span>
         <span>«Казан-нуры» · مَسْجِد</span>
         <span>·</span>
@@ -165,7 +165,7 @@
           <p>
             Снаружи это одноэтажное деревянное здание с двумя залами
             и подземным этажом, выдержанное в традициях татарской
-            архитектуры. Сегодня «Казан-нуры» — действующая мечеть
+            архитектуры. Сегодня «Казан-нуры» - действующая мечеть
             суннитов-ханафитов под началом ДУМ Республики Татарстан.
           </p>
 
@@ -184,6 +184,9 @@
             </div>
           </div>
 
+          <p class="about__more">
+            <%= link_to "Полная история комплекса →", about_path, class: "link-arrow" %>
+          </p>
         </div>
       </div>
     </section>
@@ -223,13 +226,13 @@
 
         <div class="madrasa__text">
           <span class="kicker">Образование при мечети</span>
-          <h2>Медресе «Шамиль» — <em>знание как амана́т</em></h2>
+          <h2>Медресе «Шамиль» - <em>знание как амана́т</em></h2>
 
           <p class="madrasa__lead">
             Духовное учебное заведение при мечети «Казан-нуры»,
             продолжающее традиции казанских мударрисов. Здесь дети,
             юноши и взрослые изучают Коран, основы Ислама, арабский
-            и татарский языки — в атмосфере уважения и дружбы.
+            и татарский языки - в атмосфере уважения и дружбы.
           </p>
 
           <ul class="madrasa__features">
@@ -313,8 +316,8 @@
           </div>
 
           <div class="madrasa__actions">
-            <a href="#" class="btn btn--primary btn--lg">Записаться на курсы</a>
-            <a href="#" class="btn btn--outline btn--lg">Программа и расписание</a>
+            <%= link_to "Записаться на курсы", madrasa_path(anchor: "enroll"), class: "btn btn--primary btn--lg" %>
+            <%= link_to "Программа и расписание", madrasa_path, class: "btn btn--outline btn--lg" %>
           </div>
         </div>
       </div>
@@ -328,7 +331,7 @@
           <h2>Что мы предлагаем</h2>
           <p class="muted">
             От ежедневных намазов до бракосочетания и поддержки
-            новых мусульман — мы рядом на каждом этапе жизни.
+            новых мусульман - мы рядом на каждом этапе жизни.
           </p>
         </div>
 
@@ -346,7 +349,7 @@
               Бракосочетание по Сунне с регистрацией и торжественной
               церемонией в главном зале мечети.
             </p>
-            <a href="#" class="link-arrow">Подробнее →</a>
+            <%= link_to "Подробнее →", nikah_path, class: "link-arrow" %>
           </article>
 
           <article class="service">
@@ -377,7 +380,7 @@
               Курсы Корана, основ Ислама, арабского и татарского
               языка для детей, юношей и взрослых.
             </p>
-            <a href="#education" class="link-arrow">Подробнее →</a>
+            <a href="<%= madrasa_path %>" class="link-arrow">Подробнее →</a>
           </article>
 
           <article class="service">
@@ -447,7 +450,7 @@
             <span class="kicker kicker--gold">Жизнь общины</span>
             <h2>Фотогалерея</h2>
             <p class="muted">
-              Никах, исем кушу и ифтары Рамадана — моменты,
+              Никах, исем кушу и ифтары Рамадана - моменты,
               которыми мечеть «Казан-нуры» делится с прихожанами.
             </p>
           </div>
@@ -484,7 +487,7 @@
       <div class="container donate__inner">
         <div class="donate__text">
           <span class="kicker kicker--gold">Поддержать мечеть</span>
-          <h2>Ваш садака — продолжение благих дел</h2>
+          <h2>Ваш садака - продолжение благих дел</h2>
           <p>
             Содержание мечети, бесплатные ифтары, поддержка
             нуждающихся семей и образовательные программы
@@ -506,7 +509,7 @@
           <h2>Мы в Казани</h2>
           <p>
             Мечеть открыта для прихожан, гостей города и организованных
-            групп. Рядом — парковка и остановка общественного транспорта.
+            групп. Рядом - парковка и остановка общественного транспорта.
           </p>
 
           <ul class="visit__list">
@@ -531,68 +534,4 @@
     </section>
 
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container footer__grid">
-        <div class="footer__brand">
-          <div class="logo logo--light">
-            <%= render "shared/logo_mark" %>
-            <span class="logo__text">
-              <span class="logo__title">Казан-нуры</span>
-              <span class="logo__sub">قازان نوری  </span>
-            </span>
-          </div>
-          <p class="footer__about">
-            Мечеть Казан-нуры — место молитвы, знаний и общины
-            в сердце Татарстана. Двери открыты для каждого.
-          </p>
-        </div>
-
-        <div>
-          <h4>Навигация</h4>
-          <ul>
-            <li><a href="#about">О мечети</a></li>
-            <li><a href="<%= prayertime_path %>">Расписание намазов</a></li>
-            <li><a href="<%= videos_path %>">Хутбы и проповеди</a></li>
-            <li><a href="#education">Медресе «Шамиль»</a></li>
-            <li><a href="#services">Услуги</a></li>
-            <li><a href="<%= gallery_path %>">Галерея</a></li>
-            <li><a href="#events">События</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Поддержать</h4>
-          <ul>
-            <li><a href="#donate">Закят и садака</a></li>
-            <li><a href="#donate">Реквизиты вакфа</a></li>
-            <li><a href="#">Стать волонтёром</a></li>
-            <li><a href="#">Партнёрство</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Контакты</h4>
-          <ul>
-            <li>г. Казань, проспект Ф. Амирхана, 3</li>
-            <li>ДУМ Республики Татарстан</li>
-            <li><a href="http://kazan-nury.ru" target="_blank" rel="noopener noreferrer">kazan-nury.ru</a></li>
-          </ul>
-          <div class="footer__socials">
-            <a href="#" aria-label="Telegram">TG</a>
-            <a href="#" aria-label="VK">VK</a>
-            <a href="#" aria-label="YouTube">YT</a>
-            <a href="#" aria-label="Instagram">IG</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="container footer__bottom">
-        <p>© 2026 Мечеть «Казан-нуры». Все права защищены.</p>
-        <p>
-          <a href="#">Политика конфиденциальности</a>
-          <span class="dot">·</span>
-          <a href="#">Условия использования</a>
-        </p>
-      </div>
-    </footer>
+    <%= render "shared/site_footer" %>

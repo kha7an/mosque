@@ -1,0 +1,27 @@
+<%# locals: kicker, title, lead (optional), jump_links (optional Array<{label:, href:}>), breadcrumb_tail (optional String) %>
+<section class="page-hero">
+  <div class="container page-hero__body">
+  <nav class="page-hero__breadcrumb" aria-label="breadcrumb">
+    <%= link_to t("pages.breadcrumb_home"), root_path %>
+    <span aria-hidden="true">/</span>
+    <span><%= local_assigns[:breadcrumb_tail] || title %></span>
+  </nav>
+
+  <% if kicker.present? %>
+    <span class="kicker kicker--gold"><%= kicker %></span>
+  <% end %>
+  <h1 class="page-hero__title"><%= title %></h1>
+
+  <% if local_assigns[:lead].present? %>
+    <p class="page-hero__lead"><%= lead %></p>
+  <% end %>
+
+  <% if local_assigns[:jump_links].present? %>
+    <nav class="page-hero__jump" aria-label="<%= title %>">
+      <% jump_links.each do |link| %>
+        <%= link_to link[:label], link[:href] %>
+      <% end %>
+    </nav>
+  <% end %>
+  </div>
+</section>

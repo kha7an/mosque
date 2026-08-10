@@ -10,4 +10,25 @@ class PagesController < ApplicationController
     @upcoming_events = feed.reject { |event| event.id == @featured_event&.id }.first(3)
     @gallery_groups = GalleryGroup.ordered.includes(gallery_photos: { image_attachment: :blob }).limit(3)
   end
+
+  def about
+  end
+
+  def madrasa
+  end
+
+  def nikah
+  end
+
+  def useful
+    @hadith = Hadiths::DailyPresenter.for
+    @videos = Video.published.limit(4)
+    @video_categories = Video::CATEGORIES
+    @gallery_groups = GalleryGroup.ordered.includes(gallery_photos: { image_attachment: :blob }).limit(3)
+    feed = Event.homepage_feed(limit: 3)
+    @events = feed
+  end
+
+  def contact
+  end
 end

@@ -1,7 +1,7 @@
 module PrayerTimesHelper
   def prayer_time_value(record, field)
     value = record.public_send(field)
-    value&.strftime("%H:%M") || "—"
+    value&.strftime("%H:%M") || "-"
   end
 
   def prayertime_period_label(from_date, to_date)
