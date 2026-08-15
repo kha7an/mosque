@@ -3911,20 +3911,20 @@ body.video-modal-open {
   }
 }
 
-/* ====== Страница медресе ====== */
-.content-page--madrasa .content-page__body {
+/* ====== Информационные страницы (медресе, о мечети, никах) ====== */
+.content-page--info .content-page__body {
   padding: 48px 52px;
 }
-.madrasa-page__section + .madrasa-page__section {
+.info-page__section + .info-page__section {
   margin-top: 0;
 }
-.madrasa-page__head {
+.info-page__head {
   margin-bottom: 28px;
 }
-.madrasa-page__head .kicker {
+.info-page__head .kicker {
   margin-bottom: 10px;
 }
-.madrasa-page__head h2 {
+.info-page__head h2 {
   font-family: var(--serif);
   font-size: clamp(1.55rem, 3vw, 1.9rem);
   font-weight: 400;
@@ -3932,19 +3932,19 @@ body.video-modal-open {
   margin: 0;
   line-height: 1.2;
 }
-.madrasa-page__lead {
+.info-page__lead {
   font-size: 1.05rem;
   line-height: 1.8;
   color: var(--ink);
 }
-.madrasa-page__lead p {
+.info-page__lead p {
   margin: 0;
 }
-.madrasa-page__lead strong {
+.info-page__lead strong {
   color: var(--green-dark);
   font-weight: 600;
 }
-.madrasa-page__meta {
+.info-page__meta {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
@@ -3954,7 +3954,7 @@ body.video-modal-open {
   border: 1px solid var(--line-soft);
   border-radius: var(--radius);
 }
-.madrasa-page__meta-label {
+.info-page__meta-label {
   display: block;
   font-size: 0.72rem;
   letter-spacing: 0.12em;
@@ -3963,18 +3963,18 @@ body.video-modal-open {
   font-weight: 600;
   margin-bottom: 4px;
 }
-.madrasa-page__meta-value {
+.info-page__meta-value {
   font-size: 0.92rem;
   color: var(--ink);
   line-height: 1.4;
 }
-.madrasa-page__stats {
+.info-page__stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin: 32px 0;
 }
-.madrasa-page__stat {
+.info-page__stat {
   padding: 22px 16px;
   text-align: center;
   background: var(--surface);
@@ -3982,7 +3982,7 @@ body.video-modal-open {
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
 }
-.madrasa-page__stat-num {
+.info-page__stat-num {
   display: block;
   font-family: var(--serif);
   font-size: clamp(1.8rem, 3vw, 2.4rem);
@@ -3991,36 +3991,36 @@ body.video-modal-open {
   line-height: 1;
   margin-bottom: 8px;
 }
-.madrasa-page__stat-label {
+.info-page__stat-label {
   font-size: 0.78rem;
   line-height: 1.35;
   color: var(--muted);
 }
-.madrasa-page__block {
+.info-page__block {
   margin-top: 36px;
 }
-.madrasa-page__block--accent {
+.info-page__block--accent {
   padding: 28px 30px;
   background: linear-gradient(135deg, rgba(13, 91, 70, 0.06) 0%, rgba(184, 137, 61, 0.08) 100%);
   border: 1px solid rgba(13, 91, 70, 0.12);
   border-radius: var(--radius-lg);
 }
-.madrasa-page__block--accent p {
+.info-page__block--accent p {
   margin: 0;
   font-size: 1.02rem;
   line-height: 1.75;
   color: var(--ink);
 }
-.madrasa-page__block--accent p + p {
+.info-page__block--accent p + p {
   margin-top: 1em;
 }
-.madrasa-page__subtitle {
+.info-page__subtitle {
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--green-dark);
   margin: 0 0 16px;
 }
-.madrasa-page__tags {
+.info-page__tags {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -4028,7 +4028,7 @@ body.video-modal-open {
   flex-wrap: wrap;
   gap: 10px;
 }
-.madrasa-page__tags li {
+.info-page__tags li {
   padding: 8px 16px;
   font-size: 0.88rem;
   font-weight: 500;
@@ -4037,26 +4037,26 @@ body.video-modal-open {
   border: 1px solid rgba(13, 91, 70, 0.14);
   border-radius: 100px;
 }
-.madrasa-page__note {
+.info-page__note {
   margin: 18px 0 0;
   font-size: 0.95rem;
   line-height: 1.7;
   color: var(--ink-2);
 }
-.madrasa-page__highlight {
+.info-page__highlight {
   margin-top: 1.2em;
   padding-top: 1.2em;
   border-top: 1px solid rgba(13, 91, 70, 0.12);
   color: var(--green-dark);
 }
-.madrasa-page__directions {
+.info-page__directions {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
   gap: 12px;
 }
-.madrasa-page__directions li {
+.info-page__directions li {
   display: flex;
   align-items: flex-start;
   gap: 16px;
@@ -4065,7 +4065,7 @@ body.video-modal-open {
   border: 1px solid var(--line-soft);
   border-radius: var(--radius);
 }
-.madrasa-page__direction-num {
+.info-page__direction-num {
   flex: 0 0 auto;
   font-family: var(--serif);
   font-size: 1.1rem;
@@ -4073,28 +4073,28 @@ body.video-modal-open {
   line-height: 1;
   font-weight: 500;
 }
-.madrasa-page__directions span:last-child {
+.info-page__directions span:last-child {
   font-size: 0.95rem;
   line-height: 1.5;
   color: var(--ink);
 }
-.madrasa-page__divider {
+.info-page__divider {
   display: flex;
   align-items: center;
   gap: 16px;
   margin: 48px 0;
   color: var(--gold-soft);
 }
-.madrasa-page__divider-line {
+.info-page__divider-line {
   flex: 1;
   height: 1px;
   background: var(--line);
 }
-.madrasa-page__divider-star {
+.info-page__divider-star {
   font-size: 0.9rem;
   color: var(--gold);
 }
-.madrasa-page__course-banner {
+.info-page__course-banner {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -4105,20 +4105,20 @@ body.video-modal-open {
   border-radius: var(--radius-lg);
   color: #fff;
 }
-.madrasa-page__course-title {
+.info-page__course-title {
   font-family: var(--serif);
   font-size: 1.35rem;
   font-weight: 400;
   margin: 0 0 8px;
   color: #fff;
 }
-.madrasa-page__course-meta {
+.info-page__course-meta {
   margin: 0;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.78);
   line-height: 1.5;
 }
-.madrasa-page__course-badge {
+.info-page__course-badge {
   flex: 0 0 auto;
   padding: 6px 14px;
   font-size: 0.72rem;
@@ -4129,14 +4129,14 @@ body.video-modal-open {
   background: var(--gold-2);
   border-radius: 100px;
 }
-.madrasa-page__subjects {
+.info-page__subjects {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
   gap: 10px;
 }
-.madrasa-page__subjects li {
+.info-page__subjects li {
   display: grid;
   grid-template-columns: 140px 1fr;
   gap: 12px 20px;
@@ -4146,22 +4146,22 @@ body.video-modal-open {
   border-radius: var(--radius);
   border: 1px solid var(--line-soft);
 }
-.madrasa-page__subject-term {
+.info-page__subject-term {
   font-weight: 600;
   color: var(--green-dark);
   font-size: 0.95rem;
 }
-.madrasa-page__subject-desc {
+.info-page__subject-desc {
   font-size: 0.92rem;
   line-height: 1.5;
   color: var(--ink-2);
 }
-.madrasa-page__shifts {
+.info-page__shifts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
 }
-.madrasa-page__shift {
+.info-page__shift {
   padding: 20px 16px;
   text-align: center;
   background: var(--surface);
@@ -4169,7 +4169,7 @@ body.video-modal-open {
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
 }
-.madrasa-page__shift-label {
+.info-page__shift-label {
   display: block;
   font-size: 0.72rem;
   letter-spacing: 0.1em;
@@ -4178,13 +4178,13 @@ body.video-modal-open {
   font-weight: 600;
   margin-bottom: 8px;
 }
-.madrasa-page__shift-time {
+.info-page__shift-time {
   display: block;
   font-family: var(--serif);
   font-size: 1.25rem;
   color: var(--green);
 }
-.madrasa-page__chips {
+.info-page__chips {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -4192,7 +4192,7 @@ body.video-modal-open {
   flex-wrap: wrap;
   gap: 10px;
 }
-.madrasa-page__chips li {
+.info-page__chips li {
   padding: 10px 16px;
   font-size: 0.88rem;
   color: var(--ink);
@@ -4201,31 +4201,45 @@ body.video-modal-open {
   border-radius: var(--radius);
   transition: border-color 0.2s ease, color 0.2s ease;
 }
-.madrasa-page__chips li:hover {
+.info-page__chips li:hover {
   border-color: var(--gold);
   color: var(--green-dark);
 }
-.madrasa-page__short-grid {
+.info-page__short-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 14px;
-  margin-top: 36px;
+  margin-top: 24px;
 }
-.madrasa-page__short-card {
+.info-page__block .info-page__short-grid {
+  margin-top: 16px;
+}
+.info-page__short-card {
   padding: 22px 20px;
   background: var(--surface);
   border: 1px solid var(--line-soft);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
 }
-.madrasa-page__short-card p {
+.info-page__short-card p {
   margin: 10px 0 0;
   font-size: 0.95rem;
   line-height: 1.5;
   color: var(--ink);
   font-weight: 500;
 }
-.madrasa-page__short-badge {
+.info-page__short-phone {
+  display: block;
+  margin-top: 12px;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--green);
+  text-decoration: none;
+}
+.info-page__short-phone:hover {
+  color: var(--green-dark);
+}
+.info-page__short-badge {
   display: inline-block;
   padding: 4px 10px;
   font-size: 0.7rem;
@@ -4236,23 +4250,23 @@ body.video-modal-open {
   background: rgba(13, 91, 70, 0.1);
   border-radius: 100px;
 }
-.madrasa-page__callout {
+.info-page__callout {
   margin-top: 24px;
   padding: 20px 22px;
   background: rgba(184, 137, 61, 0.1);
   border-left: 3px solid var(--gold);
   border-radius: 0 var(--radius) var(--radius) 0;
 }
-.madrasa-page__callout p {
+.info-page__callout p {
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.7;
   color: var(--ink-2);
 }
-.madrasa-page__enroll {
+.info-page__enroll {
   margin-top: 48px;
 }
-.madrasa-page__enroll-inner {
+.info-page__enroll-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -4262,21 +4276,21 @@ body.video-modal-open {
   border-radius: var(--radius-lg);
   color: #fff;
 }
-.madrasa-page__enroll h2 {
+.info-page__enroll h2 {
   font-family: var(--serif);
   font-size: 1.5rem;
   font-weight: 400;
   margin: 0 0 12px;
   color: #fff;
 }
-.madrasa-page__enroll p {
+.info-page__enroll p {
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.82);
   max-width: 520px;
 }
-.madrasa-page__enroll-action {
+.info-page__enroll-action {
   flex: 0 0 auto;
   text-align: center;
   padding: 24px 28px;
@@ -4285,7 +4299,7 @@ body.video-modal-open {
   border-radius: var(--radius-lg);
   backdrop-filter: blur(4px);
 }
-.madrasa-page__enroll-label {
+.info-page__enroll-label {
   display: block;
   font-size: 0.78rem;
   letter-spacing: 0.1em;
@@ -4293,7 +4307,7 @@ body.video-modal-open {
   color: var(--gold-2);
   margin-bottom: 6px;
 }
-.madrasa-page__enroll-phone {
+.info-page__enroll-phone {
   display: block;
   font-family: var(--serif);
   font-size: 1.6rem;
@@ -4302,29 +4316,36 @@ body.video-modal-open {
   line-height: 1.2;
   transition: color 0.2s ease;
 }
-.madrasa-page__enroll-phone:hover {
+.info-page__enroll-phone:hover {
   color: var(--gold-2);
 }
-.madrasa-page__enroll-hint {
+.info-page__enroll-hint {
   display: block;
   margin-top: 6px;
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.6);
 }
-.madrasa-page__aside-card--cta {
+.info-page__enroll-link {
+  color: var(--gold-2);
+  text-decoration: none;
+}
+.info-page__enroll-link:hover {
+  color: #fff;
+}
+.info-page__aside-card--cta {
   background: linear-gradient(140deg, var(--green-dark) 0%, #0a4a38 100%);
   border-color: transparent;
   color: #fff;
 }
-.madrasa-page__aside-card--cta h3 {
+.info-page__aside-card--cta h3 {
   color: var(--gold-2);
 }
-.madrasa-page__aside-cta-text {
+.info-page__aside-cta-text {
   margin: 0 0 4px;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.8);
 }
-.madrasa-page__aside-phone {
+.info-page__aside-phone {
   display: block;
   font-family: var(--serif);
   font-size: 1.35rem;
@@ -4332,70 +4353,77 @@ body.video-modal-open {
   text-decoration: none;
   margin-bottom: 4px;
 }
-.madrasa-page__aside-phone:hover {
+.info-page__aside-phone:hover {
   color: var(--gold-2);
 }
-.madrasa-page__aside-hint {
+.info-page__aside-hint {
   font-size: 0.78rem;
   color: rgba(255, 255, 255, 0.55);
 }
-.madrasa-page__aside-list {
+.info-page__aside-hint a {
+  color: var(--gold-2);
+  text-decoration: none;
+}
+.info-page__aside-hint a:hover {
+  color: #fff;
+}
+.info-page__aside-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
   gap: 14px;
 }
-.madrasa-page__aside-list li {
+.info-page__aside-list li {
   display: grid;
   gap: 4px;
 }
-.madrasa-page__aside-key {
+.info-page__aside-key {
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
   font-weight: 600;
 }
-.madrasa-page__aside-list a {
+.info-page__aside-list a {
   color: var(--green);
   text-decoration: none;
 }
-.madrasa-page__aside-list a:hover {
+.info-page__aside-list a:hover {
   color: var(--green-dark);
 }
-.madrasa-page__aside-card--cta .madrasa-page__aside-list a {
+.info-page__aside-card--cta .info-page__aside-list a {
   color: var(--gold-2);
 }
 
 @media (max-width: 900px) {
-  .content-page--madrasa .content-page__body {
+  .content-page--info .content-page__body {
     padding: 28px 22px;
   }
-  .madrasa-page__meta {
+  .info-page__meta {
     grid-template-columns: 1fr;
   }
-  .madrasa-page__stats {
+  .info-page__stats {
     grid-template-columns: repeat(2, 1fr);
   }
-  .madrasa-page__course-banner {
+  .info-page__course-banner {
     flex-direction: column;
   }
-  .madrasa-page__subjects li {
+  .info-page__subjects li {
     grid-template-columns: 1fr;
     gap: 4px;
   }
-  .madrasa-page__shifts {
+  .info-page__shifts {
     grid-template-columns: 1fr;
   }
-  .madrasa-page__short-grid {
+  .info-page__short-grid {
     grid-template-columns: 1fr;
   }
-  .madrasa-page__enroll-inner {
+  .info-page__enroll-inner {
     flex-direction: column;
     align-items: stretch;
   }
-  .madrasa-page__enroll-action {
+  .info-page__enroll-action {
     width: 100%;
   }
 }

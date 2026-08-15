@@ -1,4 +1,4 @@
-<% content_for :title, "#{t('pages.nikah.title')} - Казан-нуры" %>
+<% content_for :title, "#{t('pages.nikah.title')} — Казан-нуры" %>
 <% content_for :description, t("pages.nikah.meta_description") %>
 
 <%= render "shared/topbar", links: link_to(t("pages.back_home"), root_path) %>
@@ -7,84 +7,213 @@
 <%= render "shared/page_hero",
       kicker: t("pages.nikah.kicker"),
       title: t("pages.nikah.title"),
-      lead: t("pages.nikah.lead") %>
+      lead: t("pages.nikah.lead"),
+      jump_links: [
+        { label: "Условия", href: "#conditions" },
+        { label: "Порядок", href: "#procedure" },
+        { label: "Услуги", href: "#services" }
+      ] %>
 
-<article class="content-page">
-  <div class="container content-page__layout content-page__layout--single">
-    <div class="content-page__body prose">
-      <p>
-        Никах - брачное соглашение и священный договор в Исламе, заключаемый перед
-        Аллахом Субханаху уа Та'аля, свидетельствующий о намерении мужчины и женщины
-        создать семью в соответствии с велением Всевышнего Создателя. Никах является
-        основой для установления законных и благочестивых отношений между супругами,
-        обеспечивая их права и обязанности в соответствии с шариатом.
-      </p>
-      <p>Для того чтобы брак был действительным, необходимо выполнить ряд важных условий.</p>
+<article class="content-page content-page--info">
+  <div class="container content-page__layout">
+    <div class="content-page__body info-page">
+      <section class="info-page__section">
+        <div class="info-page__lead">
+          <p>
+            Никах — брачное соглашение и священный договор в Исламе, заключаемый перед
+            Аллахом Субханаху уа Та'аля. Он свидетельствует о намерении мужчины и женщины
+            создать семью в соответствии с велением Всевышнего и устанавливает права
+            и обязанности супругов по шариату.
+          </p>
+        </div>
 
-      <h2>Условия никаха</h2>
-      <ul>
-        <li>
-          Присутствие на никахе со стороны невесты (может выступить отец или дядя по
-          отцовской линии, или брат). Желательно присутствие родителей с обеих сторон;
-          если же они отсутствуют по уважительным причинам, хазрат должен быть
-          уведомлен их согласием в проведении никаха.
-        </li>
-        <li>
-          Присутствие свидетелей на обряде никах. В свидетели берутся двое мужчин.
-          Можно взять одного мужчину и двух женщин. Нельзя брать в свидетели своих
-          родителей.
-        </li>
-        <li>Необходимость выплаты махра (материальное право супруги - свадебный дар со стороны жениха).</li>
-      </ul>
+        <div class="info-page__course-banner">
+          <div>
+            <h3 class="info-page__course-title">Зал для никаха в мечети</h3>
+            <p class="info-page__course-meta">Церемония около часа · свидетельство · зал на втором этаже западного пристроя</p>
+          </div>
+          <span class="info-page__course-badge">3 000 ₽</span>
+        </div>
+      </section>
 
-      <h2>Порядок проведения</h2>
-      <ul>
-        <li>
-          Предварительно нужно определиться с датой проведения никаха и обговорить
-          время проведения никаха, так как в мечети в определённый промежуток времени
-          проходит молитва. Никах читается около часа.
-        </li>
-        <li>
-          Стоимость аренды зала для проведения никаха и фотосессии, выдача
-          свидетельства - 3000 руб., оплата производится наличными в бухгалтерию.
-        </li>
-        <li>
-          Молодожёны и гости торжества должны быть одеты подобающе: мужчины в тюбетейке,
-          женщины в платках.
-        </li>
-        <li>По желанию невеста может взять небольшой букет цветов.</li>
-        <li>
-          Молодожёнам в конце выдаётся свидетельство о заключении никаха. Туда вносятся
-          полные имена жениха и невесты, свидетелей и также свадебный подарок невесте
-          от жениха.
-        </li>
-      </ul>
+      <section id="conditions" class="info-page__section">
+        <header class="info-page__head">
+          <span class="kicker">Шариат</span>
+          <h2>Условия никаха</h2>
+        </header>
 
-      <h2>Дополнительные услуги</h2>
-      <p>Также в нашей мечети вы можете воспользоваться услугами:</p>
-      <ul>
-        <li>подбор свадебного наряда невесте (платье, платок, украшения);</li>
-        <li>макияж, завязывание платка невесте;</li>
-        <li>услуги фотографа.</li>
-      </ul>
+        <div class="info-page__block">
+          <p class="info-page__note">
+            Для действительности брака необходимо выполнить следующие условия:
+          </p>
+          <ol class="info-page__directions">
+            <li>
+              <span class="info-page__direction-num">01</span>
+              <span>
+                Присутствие представителя невесты (отец, дядя по отцовской линии или брат).
+                Желательно присутствие родителей; при их отсутствии хазрат должен быть
+                уведомлен о их согласии.
+              </span>
+            </li>
+            <li>
+              <span class="info-page__direction-num">02</span>
+              <span>
+                Два мужские свидетели, либо один мужчина и две женщины. Родители не могут
+                быть свидетелями.
+              </span>
+            </li>
+            <li>
+              <span class="info-page__direction-num">03</span>
+              <span>
+                Выплата махра — свадебного дара жениха, материальное право супруги.
+              </span>
+            </li>
+          </ol>
+        </div>
+      </section>
 
-      <h2>Банкетные залы на территории</h2>
-      <p>На территории мечети есть 3 банкетных зала для проведения никаха:</p>
-      <ul>
-        <li>
-          Кафе «Итле» (большой и малый зал),
-          тел. <a href="tel:+78435006035">8 (843) 500-60-35</a>
-        </li>
-        <li>
-          Кафе «Центр Плова» (один зал),
-          тел. <a href="tel:+79179167693">8 917 916-76-93</a> (Алия)
-        </li>
-      </ul>
+      <div class="info-page__divider" aria-hidden="true">
+        <span class="info-page__divider-line"></span>
+        <span class="info-page__divider-star">✦</span>
+        <span class="info-page__divider-line"></span>
+      </div>
 
-      <p class="prose__closing">
-        Пусть Всевышний Аллах благословит Ваш союз и ниспошлёт вам радость и благоденствие!
-      </p>
+      <section id="procedure" class="info-page__section">
+        <header class="info-page__head">
+          <span class="kicker kicker--gold">Как проходит</span>
+          <h2>Порядок проведения</h2>
+        </header>
+
+        <div class="info-page__meta">
+          <div class="info-page__meta-item">
+            <span class="info-page__meta-label">Длительность</span>
+            <span class="info-page__meta-value">около 1 часа</span>
+          </div>
+          <div class="info-page__meta-item">
+            <span class="info-page__meta-label">Оплата</span>
+            <span class="info-page__meta-value">3 000 ₽ наличными в бухгалтерию</span>
+          </div>
+          <div class="info-page__meta-item">
+            <span class="info-page__meta-label">Включено</span>
+            <span class="info-page__meta-value">зал, фотосессия, свидетельство</span>
+          </div>
+        </div>
+
+        <div class="info-page__block">
+          <h3 class="info-page__subtitle">Этапы подготовки</h3>
+          <ul class="info-page__subjects">
+            <li>
+              <span class="info-page__subject-term">Дата и время</span>
+              <span class="info-page__subject-desc">согласовать с расписанием намазов в мечети</span>
+            </li>
+            <li>
+              <span class="info-page__subject-term">Одежда</span>
+              <span class="info-page__subject-desc">мужчины в тюбетейке, женщины в платках</span>
+            </li>
+            <li>
+              <span class="info-page__subject-term">Свидетельство</span>
+              <span class="info-page__subject-desc">имена жениха, невесты, свидетелей и махр</span>
+            </li>
+            <li>
+              <span class="info-page__subject-term">По желанию</span>
+              <span class="info-page__subject-desc">небольшой букет цветов для невесты</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="info-page__divider" aria-hidden="true">
+        <span class="info-page__divider-line"></span>
+        <span class="info-page__divider-star">✦</span>
+        <span class="info-page__divider-line"></span>
+      </div>
+
+      <section id="services" class="info-page__section">
+        <header class="info-page__head">
+          <span class="kicker">Дополнительно</span>
+          <h2>Услуги и банкетные залы</h2>
+        </header>
+
+        <div class="info-page__block">
+          <h3 class="info-page__subtitle">В мечети</h3>
+          <ul class="info-page__chips">
+            <li>Подбор свадебного наряда</li>
+            <li>Платье, платок, украшения</li>
+            <li>Макияж и завязывание платка</li>
+            <li>Услуги фотографа</li>
+          </ul>
+        </div>
+
+        <div class="info-page__block">
+          <h3 class="info-page__subtitle">Банкетные залы на территории</h3>
+          <div class="info-page__short-grid">
+            <div class="info-page__short-card">
+              <span class="info-page__short-badge">Кафе «Итле»</span>
+              <p>Большой и малый зал</p>
+              <a href="tel:+78435006035" class="info-page__short-phone">8 (843) 500-60-35</a>
+            </div>
+            <div class="info-page__short-card">
+              <span class="info-page__short-badge">«Центр Плова»</span>
+              <p>Банкетный зал · Алия</p>
+              <a href="tel:+79179167693" class="info-page__short-phone">8 917 916-76-93</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-page__callout">
+          <p>
+            Пусть Всевышний Аллах благословит Ваш союз и ниспошлёт вам радость и благоденствие!
+          </p>
+        </div>
+      </section>
+
+      <section class="info-page__enroll">
+        <div class="info-page__enroll-inner">
+          <div>
+            <h2>Записаться на никах</h2>
+            <p>
+              Свяжитесь с мечетью для согласования даты и времени. Уточните детали
+              проведения церемонии и оплаты в бухгалтерии.
+            </p>
+          </div>
+          <div class="info-page__enroll-action">
+            <span class="info-page__enroll-label">Мечеть «Казан-нуры»</span>
+            <a href="tel:+78435231665" class="info-page__enroll-phone">+7 (843) 523-16-65</a>
+            <span class="info-page__enroll-hint"><%= link_to "Контакты и адрес", contact_path, class: "info-page__enroll-link" %></span>
+          </div>
+        </div>
+      </section>
     </div>
+
+    <aside class="content-page__aside info-page__aside">
+      <div class="content-page__card info-page__aside-card">
+        <h3>Практическая информация</h3>
+        <ul class="info-page__aside-list">
+          <li>
+            <span class="info-page__aside-key">Адрес</span>
+            <span>пр. Фатыха Амирхана, 3</span>
+          </li>
+          <li>
+            <span class="info-page__aside-key">Зал никаха</span>
+            <span>2-й этаж западного пристроя</span>
+          </li>
+          <li>
+            <span class="info-page__aside-key">Стоимость</span>
+            <span>3 000 ₽ (зал, фото, свидетельство)</span>
+          </li>
+          <li>
+            <span class="info-page__aside-key">Оплата</span>
+            <span>наличными в бухгалтерию</span>
+          </li>
+        </ul>
+      </div>
+      <div class="content-page__card info-page__aside-card info-page__aside-card--cta">
+        <h3>Телефон мечети</h3>
+        <p class="info-page__aside-cta-text">Для записи и вопросов</p>
+        <a href="tel:+78435231665" class="info-page__aside-phone">+7 (843) 523-16-65</a>
+        <span class="info-page__aside-hint"><%= link_to "Как добраться →", contact_path %></span>
+      </div>
+    </aside>
   </div>
 </article>
 
