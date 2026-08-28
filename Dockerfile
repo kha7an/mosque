@@ -9,13 +9,21 @@
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version
 ARG RUBY_VERSION=3.2.9
+# Override when deb.debian.org is unreachable from Docker build network, e.g. mirror.yandex.ru
+ARG DEBIAN_MIRROR=deb.debian.org
+
 FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
+ARG DEBIAN_MIRROR
 
 # Rails app lives here
 WORKDIR /rails
 
 # Install base packages
-RUN apt-get update -qq && \
+RUN sed -i \
+      -e "s|deb.debian.org|${DEBIAN_MIRROR}|g" \
+      -e 's|http://|https://|g' \
+      /etc/apt/sources.list.d/debian.sources && \
+    apt-get update -qq && \
     apt-get install --no-install-recommends -y curl libjemalloc2 libvips postgresql-client && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
@@ -50,10 +58,15 @@ RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
 # Development stage for docker compose (docker compose build --target development)
 FROM docker.io/library/ruby:$RUBY_VERSION-slim AS development
+ARG DEBIAN_MIRROR
 
 WORKDIR /rails
 
-RUN apt-get update -qq && \
+RUN sed -i \
+      -e "s|deb.debian.org|${DEBIAN_MIRROR}|g" \
+      -e 's|http://|https://|g' \
+      /etc/apt/sources.list.d/debian.sources && \
+    apt-get update -qq && \
     apt-get install --no-install-recommends -y \
       build-essential \
       curl \

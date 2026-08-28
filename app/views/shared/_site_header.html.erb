@@ -29,12 +29,12 @@
             <span aria-hidden="true"></span>
           </button>
         </div>
-        <%= link_to "О мечети", about_href, class: ("is-active" if active == :about) %>
         <%= link_to "Намазы", prayertime_path, class: ("is-active" if active == :prayertime) %>
         <%= link_to "Хутбы", videos_path, class: ("is-active" if active == :videos) %>
         <%= link_to "Медресе", madrasa_href, class: ("is-active" if active == :madrasa) %>
         <%= link_to "События", events_href, class: ("is-active" if active == :events) %>
         <%= link_to "Галерея", gallery_href, class: ("is-active" if active == :gallery) %>
+        <%= link_to "Полезное", useful_path, class: ("is-active" if active == :useful) %>
         <%= link_to "Контакты", contact_href, class: ("is-active" if active == :contact) %>
         <% if show_donate %>
           <%= link_to "Пожертвовать", donate_href, class: "nav__donate-mobile" %>

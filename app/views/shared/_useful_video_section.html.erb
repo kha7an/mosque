@@ -1,0 +1,18 @@
+<%# locals: id, kicker, title, lead, videos, empty_message %>
+<section class="useful-section<%= " useful-section--alt" if local_assigns[:alt] %>" id="<%= id %>">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker<%= " kicker--gold" if local_assigns[:gold_kicker] %>"><%= kicker %></span>
+      <h2><%= title %></h2>
+      <p class="muted"><%= lead %></p>
+    </div>
+
+    <% if videos.any? %>
+      <div class="sermons__grid" data-sermons-grid>
+        <%= render partial: "pages/sermon", collection: videos, as: :video %>
+      </div>
+    <% else %>
+      <p class="sermons__empty muted"><%= empty_message %></p>
+    <% end %>
+  </div>
+</section>

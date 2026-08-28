@@ -36,8 +36,8 @@
         <h4>Услуги</h4>
         <ul>
           <li><%= link_to "Никах", nikah_path %></li>
-          <li><%= link_to root_path(anchor: "donate"), "Закят и садака" %></li>
-          <li><%= link_to root_path(anchor: "donate"), "Реквизиты вакфа" %></li>
+          <li><%= link_to "Закят и садака", root_path(anchor: "donate") %></li>
+          <li><%= link_to "Реквизиты для садака", root_path(anchor: "requisites") %></li>
         </ul>
       </div>
 
@@ -64,9 +64,7 @@
       <% if compact %>
         <%= link_to t("pages.breadcrumb_home"), root_path %>
       <% else %>
-        <a href="#">Политика конфиденциальности</a>
-        <span class="dot">·</span>
-        <a href="#">Условия использования</a>
+        <%= link_to "Политика конфиденциальности", privacy_policy_path %>
       <% end %>
     </p>
   </div>

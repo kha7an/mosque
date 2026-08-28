@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   def index
-    @videos = Video.published
-    @video_categories = Video::CATEGORIES
+    @videos = Video.published.sermons
+    @video_categories = Video::SERMON_CATEGORIES
   end
 end

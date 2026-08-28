@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "nikah", to: "pages#nikah", as: :nikah
   get "useful", to: "pages#useful", as: :useful
   get "contact", to: "pages#contact", as: :contact
+  get "privacy-policy", to: "pages#privacy_policy", as: :privacy_policy
   get "prayertime", to: "prayer_times#index", as: :prayertime
   get "videos", to: "videos#index", as: :videos
   get "gallery", to: "gallery#index", as: :gallery

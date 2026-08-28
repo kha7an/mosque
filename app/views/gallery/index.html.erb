@@ -51,9 +51,11 @@
             <div class="carousel" data-controller="carousel">
               <div class="carousel__viewport">
                 <% photos.each_with_index do |photo, i| %>
+                  <% photo_url = url_for(photo.image) %>
                   <div class="<%= class_names("carousel__slide", "is-active" => i == 0) %>" data-carousel-target="slide">
-                    <%= image_tag photo.image, class: "carousel__slide-bg", alt: "", aria: { hidden: true }, loading: (i == 0 ? "eager" : "lazy") %>
-                    <%= image_tag photo.image, class: "carousel__slide-fg",
+                    <div class="carousel__slide-bg" style="background-image: url('<%= photo_url %>')" aria-hidden="true"></div>
+                    <%= image_tag photo_url,
+                          class: "carousel__slide-fg",
                           alt: "#{group.title} в мечети «Казан-нуры», фото #{i + 1}",
                           loading: (i == 0 ? "eager" : "lazy") %>
                   </div>

@@ -1,5 +1,7 @@
 class Video < ApplicationRecord
-  CATEGORIES = %w[khutba lecture tafsir tatar].freeze
+  CATEGORIES = %w[khutba lecture tafsir tatar useful dua].freeze
+  SERMON_CATEGORIES = %w[khutba lecture tafsir tatar].freeze
+  USEFUL_PAGE_CATEGORIES = %w[useful dua].freeze
 
   RUTUBE_ID_PATTERN = %r{
     rutube\.ru/(?:video|play/embed)/
@@ -13,6 +15,7 @@ class Video < ApplicationRecord
 
   scope :published, -> { order(created_at: :desc) }
   scope :by_category, ->(category) { where(category: category) }
+  scope :sermons, -> { where.not(category: USEFUL_PAGE_CATEGORIES) }
 
   def category_label
     return if category.blank?
@@ -51,7 +54,12 @@ class Video < ApplicationRecord
   end
 
   def category_badge_class
-    category == "tatar" ? "sermon__live sermon__live--tat" : "sermon__live"
+    case category
+    when "tatar" then "sermon__live sermon__live--tat"
+    when "dua" then "sermon__live sermon__live--dua"
+    when "useful" then "sermon__live sermon__live--useful"
+    else "sermon__live"
+    end
   end
 
   private

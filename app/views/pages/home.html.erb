@@ -459,7 +459,7 @@
 
         <div class="gallery-teaser__grid">
           <% @gallery_groups.each do |group| %>
-            <% cover = group.gallery_photos.first %>
+            <% cover = group.cover_photo %>
             <% next unless cover&.image&.attached? %>
             <%= link_to gallery_path(anchor: group.slug), class: "gallery-teaser__item" do %>
               <%= image_tag cover.image, alt: "#{group.title} в мечети «Казан-нуры»", loading: "lazy" %>
@@ -492,12 +492,11 @@
             Содержание мечети, бесплатные ифтары, поддержка
             нуждающихся семей и образовательные программы
             существуют благодаря вашим пожертвованиям.
+            Перевод — по QR-коду или реквизитам справа.
           </p>
-          <div class="donate__actions">
-            <a href="#" class="btn btn--gold btn--lg">Сделать пожертвование</a>
-            <a href="#" class="btn btn--ghost-light btn--lg">Реквизиты вакфа</a>
-          </div>
         </div>
+
+        <%= render "shared/sadaqah_requisites" %>
       </div>
     </section>
 
@@ -523,7 +522,7 @@
             </li>
             <li>
               <strong>ДУМ</strong>
-              <span>Республики Татарстан · сунниты, ханафиты</span>
+              <span>Республики Татарстан · </span>
             </li>
           </ul>
 

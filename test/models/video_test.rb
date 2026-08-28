@@ -37,4 +37,14 @@ class VideoTest < ActiveSupport::TestCase
     assert_not video.valid?
     assert_includes video.errors[:link], I18n.t("activerecord.errors.models.video.attributes.link.invalid_rutube")
   end
+
+  test "sermons scope excludes useful page categories" do
+    Video.create!(title: "Хутба", link: "https://rutube.ru/video/7716bd3e665725c3c008ae7ab4ff02e2/", category: "khutba")
+    Video.create!(title: "Дуа", link: "https://rutube.ru/video/7716bd3e665725c3c008ae7ab4ff02e2/", category: "dua")
+
+    titles = Video.sermons.pluck(:title)
+
+    assert_includes titles, "Хутба"
+    assert_not_includes titles, "Дуа"
+  end
 end

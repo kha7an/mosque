@@ -21,6 +21,8 @@ services:
       context: .
       dockerfile: Dockerfile
       target: development
+      args:
+        DEBIAN_MIRROR: ${DEBIAN_MIRROR:-mirror.yandex.ru}
     container_name: mosque_web
     command: >
       bash -c "rm -f tmp/pids/server.pid &&

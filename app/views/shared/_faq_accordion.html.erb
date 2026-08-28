@@ -1,0 +1,32 @@
+<%# locals: section (Useful::FaqPresenter::Section) %>
+<div class="useful-faq__group" id="<%= section.id %>">
+  <header class="useful-faq__head">
+    <span class="kicker"><%= section.kicker %></span>
+    <h3><%= section.title %></h3>
+  </header>
+
+  <% if section.intro.present? %>
+    <p class="useful-faq__intro"><%= section.intro %></p>
+  <% end %>
+
+  <div class="useful-faq__list">
+    <% section.items.each do |item| %>
+      <details class="useful-faq__item">
+        <summary class="useful-faq__question"><%= item.question %></summary>
+        <div class="useful-faq__answer">
+          <% item.answers.each do |answer| %>
+            <p><%= answer %></p>
+          <% end %>
+        </div>
+      </details>
+    <% end %>
+  </div>
+
+  <% if section.footer.present? %>
+    <p class="useful-faq__footer"><%= section.footer %></p>
+  <% end %>
+
+  <% if section.cta_path.present? %>
+    <%= link_to section.cta_label, section.cta_path, class: "link-arrow useful-faq__cta" %>
+  <% end %>
+</div>
