@@ -34,7 +34,7 @@ gem "thruster", require: false
 # gem "image_processing", "~> 1.2"
 
 gem "avo", ">= 3.2.1"
-gem "roo", "~> 2.10"
+gem "roo", "~> 3.0"
 
 group :development, :test do
   gem "dotenv-rails"
