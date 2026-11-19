@@ -593,18 +593,10 @@ em {
 }
 .hero__photo--main {
   inset: 0 0 0 0;
+  background-position: center top;
   background-image:
     linear-gradient(180deg, rgba(7, 56, 41, 0.0) 60%, rgba(7, 56, 41, 0.25)),
-    url("https://commons.wikimedia.org/wiki/Special:FilePath/Kazan_Nury_Mosque_(2021-08-07)_09.jpg?width=1400");
-}
-.hero__photo--accent {
-  width: 45%;
-  aspect-ratio: 4 / 5;
-  bottom: -40px;
-  left: -50px;
-  background-image: url("https://commons.wikimedia.org/wiki/Special:FilePath/Kazan_Nury_Mosque_interior_(2021-08-07)_02.jpg?width=900");
-  border: 6px solid var(--bg);
-  z-index: 2;
+    url("home/mosque-facade.webp");
 }
 .hero__badge {
   position: absolute;
@@ -1155,6 +1147,7 @@ em {
 }
 .about__media {
   position: relative;
+  width: 100%;
   aspect-ratio: 4 / 5;
   overflow: hidden;
   border-radius: var(--radius-lg);
@@ -1182,14 +1175,10 @@ em {
   pointer-events: none;
 }
 .about__photo--1 {
-  inset: 0 25% 25% 0;
+  inset: 0;
+  background-position: center 85%;
   background-image: linear-gradient(180deg, rgba(13, 91, 70, 0.05), rgba(13, 91, 70, 0.2)),
-    url("https://commons.wikimedia.org/wiki/Special:FilePath/Kazan_Nury_Mosque_(2021-08-07)_14.jpg?width=1200");
-}
-.about__photo--2 {
-  inset: 30% 0 0 30%;
-  background-image: url("https://commons.wikimedia.org/wiki/Special:FilePath/Kazan_Nury_Mosque_interior_(2021-08-07)_06.jpg?width=900");
-  border: 6px solid var(--bg);
+    url("home/mosque-aerial.webp");
 }
 
 .about__stats {
@@ -1471,6 +1460,7 @@ body.video-modal-open {
 
 .madrasa__media {
   position: relative;
+  width: 100%;
   aspect-ratio: 5 / 6;
   overflow: visible;
   border-radius: var(--radius-lg);
@@ -1484,14 +1474,9 @@ body.video-modal-open {
   overflow: hidden;
 }
 .madrasa__photo--main {
-  inset: 0 30% 18% 0;
+  inset: 0;
   background-image: linear-gradient(180deg, rgba(7, 56, 41, 0) 60%, rgba(7, 56, 41, 0.25)),
-    url("https://commons.wikimedia.org/wiki/Special:FilePath/Kazan_Nury_Mosque_(2022-09-21)_02.jpg?width=1200");
-}
-.madrasa__photo--accent {
-  inset: 35% 0 0 35%;
-  background-image: url("https://commons.wikimedia.org/wiki/Special:FilePath/Kazan_Nury_Mosque_interior_(2022-09-21)_05.jpg?width=900");
-  border: 6px solid var(--bg);
+    url("home/madrasa-entrance.webp");
 }
 .madrasa__sticker {
   position: absolute;
@@ -2987,8 +2972,8 @@ body.video-modal-open {
     aspect-ratio: 16 / 10;
     border-radius: var(--radius);
   }
-  .hero__photo--accent,
   .hero__tulip { display: none; }
+  .hero__photo--main { background-position: center 62%; }
   .hero__photo--main::after { inset: 10px; }
   .hero__title { margin-bottom: 16px; }
   .hero__lead {
@@ -3294,11 +3279,6 @@ body.video-modal-open {
     padding-top: 24px;
     padding-bottom: max(8px, env(safe-area-inset-bottom, 0px));
   }
-
-  .about__photo--2,
-  .madrasa__photo--accent { display: none; }
-  .about__photo--1 { inset: 0; }
-  .madrasa__photo--main { inset: 0; }
 
   /* Prayer times page */
   .prayertime-page { padding: 28px 0 64px; }
