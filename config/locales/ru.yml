@@ -36,12 +36,12 @@ ru:
       - Зуль-хиджа
   prayer_times:
     names:
-      fajr: Фаджр
+      fajr: Утренний
       sunrise: Восход
-      zuhr: Зухр
-      asr: Аср
-      maghrib: Магриб
-      isha: Иша
+      zuhr: Полуденный
+      asr: Послеобеденный
+      maghrib: Вечерний
+      isha: Ночной
     subtitles:
       sunrise: шурук
       beginning: начало
@@ -60,15 +60,15 @@ ru:
       table_title: "Время намазов на ближайшие 30 дней"
       columns:
         date: Дата
-        morning: Утренний намаз
+        morning: Утренний
         end_suhur: Завершение сухура
         fajr: Совершается в мечетях
         sunrise: Восход солнца
         zenith: Зенит
-        zuhr: Зухр
-        asr: Аср
-        maghrib: Магриб
-        isha: Иша
+        zuhr: Полуденный
+        asr: Послеобеденный
+        maghrib: Вечерний
+        isha: Ночной
       empty: "Для выбранного периода расписание не найдено. Попробуйте другой год или город."
       source: "Данные ДУМ РТ · %{year} год"
       back_home: На главную
@@ -217,13 +217,13 @@ ru:
       city: Город
       date: Дата
       end_suhur: Завершение сухура
-      fajr: Фаджр
+      fajr: Утренний
       sunrise: Восход
       zenith: Зенит
-      zuhr: Зухр
-      asr: Аср
-      maghrib: Магриб
-      isha: Иша
+      zuhr: Полуденный
+      asr: Послеобеденный
+      maghrib: Вечерний
+      isha: Ночной
       jumua: Джума
       starts_at: Дата и время
       location: Место
