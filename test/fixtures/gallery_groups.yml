@@ -2,12 +2,12 @@
 
 one:
   title: MyString
-  slug: MyString
+  slug: group-one
   description: MyText
   position: 1
 
 two:
   title: MyString
-  slug: MyString
+  slug: group-two
   description: MyText
   position: 1

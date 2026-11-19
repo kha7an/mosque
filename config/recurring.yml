@@ -15,4 +15,4 @@ production:
     schedule: every hour at minute 12
   import_prayer_times:
     class: PrayerTimes::ImportYearJob
-    schedule: at 3am on january 1
+    schedule: "0 3 1 1 * Europe/Moscow"

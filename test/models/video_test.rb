@@ -41,10 +41,12 @@ class VideoTest < ActiveSupport::TestCase
   test "sermons scope excludes useful page categories" do
     Video.create!(title: "Хутба", link: "https://rutube.ru/video/7716bd3e665725c3c008ae7ab4ff02e2/", category: "khutba")
     Video.create!(title: "Дуа", link: "https://rutube.ru/video/7716bd3e665725c3c008ae7ab4ff02e2/", category: "dua")
+    Video.create!(title: "Без категории", link: "https://rutube.ru/video/abc123/")
 
     titles = Video.sermons.pluck(:title)
 
     assert_includes titles, "Хутба"
+    assert_includes titles, "Без категории"
     assert_not_includes titles, "Дуа"
   end
 end

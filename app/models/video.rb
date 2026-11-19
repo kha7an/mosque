@@ -15,7 +15,7 @@ class Video < ApplicationRecord
 
   scope :published, -> { order(created_at: :desc) }
   scope :by_category, ->(category) { where(category: category) }
-  scope :sermons, -> { where.not(category: USEFUL_PAGE_CATEGORIES) }
+  scope :sermons, -> { where.not(category: USEFUL_PAGE_CATEGORIES).or(where(category: nil)) }
 
   def category_label
     return if category.blank?

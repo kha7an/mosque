@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ ${1:-} == --help ]]; then
+  echo 'Usage: script/deploy [git-ref] (default: HEAD)'
+  echo 'DEPLOY_SSH defaults to root@152.228.118.179. DEPLOY_URL defaults to https://152.228.118.179.'
+  exit 0
+fi
+
+cd "$(dirname "$0")/.."
+revision=$(git rev-parse --verify --end-of-options "${1:-HEAD}^{commit}")
+image="mosque:$revision-$(date -u +%Y%m%d%H%M%S)-$$"
+destination=${DEPLOY_SSH:-root@152.228.118.179}
+url=${DEPLOY_URL:-https://152.228.118.179}
+printf -v health_url '%q' "${url%/}/up"
+
+git archive "$revision" | docker buildx build --platform linux/amd64 --load --tag "$image" -
+
+docker image save "$image" | gzip -c | ssh -T -o StrictHostKeyChecking=yes -- "$destination" "image=$image health_url=$health_url
+$(cat <<'REMOTE'
+set -euo pipefail
+cd /opt/mosque
+exec 9>.deploy.lock
+flock -n 9
+
+override=compose.override.yaml
+marker='# Managed by script/deploy'
+if [[ -e "$override" ]] && ! grep -Fxq "$marker" "$override"; then
+  echo "Existing $override is managed separately. Deployment stopped." >&2
+  exit 1
+fi
+
+docker image load
+candidate=$(mktemp .compose-release.XXXXXX)
+trap 'rm -f -- "$candidate"' EXIT
+cat > "$candidate" <<YAML
+$marker
+services:
+  web:
+    image: $image
+    volumes: !override
+      - uploads:/rails/storage
+YAML
+
+# The entrypoint runs db:prepare. Rollback switches the web service, not the schema.
+if docker compose -f compose.yaml -f "$candidate" up --wait --wait-timeout 120 --no-deps --pull never web &&
+  status=$(curl --fail --silent --show-error --retry 3 --max-time 10 \
+    --output /dev/null --write-out '%{http_code}' -- "$health_url") &&
+  [[ $status == 200 ]]; then
+  mv -f -- "$candidate" "$override"
+else
+  echo 'Release failed its health check. Restoring the previous web service.' >&2
+  docker compose up --wait --wait-timeout 120 --no-deps --pull never web
+  exit 1
+fi
+REMOTE
+)"
+
+echo "Deployed $revision to $url"

@@ -24,6 +24,11 @@ module PrayerTimes
         city_name = row[0].to_s.strip
         next if city_name.blank?
 
+        # Roo returns seconds for time cells; the raw Excel value is a fraction of a day.
+        (2..10).each do |index|
+          row[index] = sheet.excelx_value(row_index, index + 1).to_f if row[index].is_a?(Numeric)
+        end
+
         parsed = build_row(row)
         grouped[city_name] << parsed if parsed
       end
