@@ -752,6 +752,9 @@ em {
   box-shadow: var(--shadow-sm);
 }
 .prayer__name {
+  max-width: 100%;
+  hyphens: auto;
+  overflow-wrap: anywhere;
   font-size: 0.78rem;
   font-weight: 600;
   text-transform: uppercase;
